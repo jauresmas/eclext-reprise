@@ -1,0 +1,79 @@
+# Cahier de recette de l'export au géostandard EclExt v1.1 (CNIG, 29/11/2022), pour l'outil recette-geo.
+#
+# Ce contrôle est volontairement indépendant de la reprise : il relit les fichiers livrés, sans
+# passer par la base. Les listes de valeurs sont celles de la section 3.7 du standard, les attributs
+# obligatoires ceux de la section 3.4 (cardinalité 1, non annulables).
+
+projet:
+  nom: Éclairage extérieur au format EclExt
+  donneur_ordre: Recette de la reprise
+  prestataire: Export du dépôt eclext-reprise
+  crs: EPSG:2154
+
+livraison:
+  dossier: '^ECLEXT_(?P<zone>[A-Z0-9]+)_V(?P<version>\d{2})$'
+  fichiers:
+    - nom: 'PointLumineux_{zone}_V{version}.gpkg'
+    - nom: 'PointLumineux_{zone}_V{version}.csv'
+    - nom: 'fr-{siren}-eclairage-exterieur-{emprise}-{date}.xml'   # section 5.2 du standard
+      role: metadonnees
+
+# Territoire annoncé par chaque producteur, construit par scripts/06_recette_geo.py
+referentiel:
+  emprises:
+    fichier: ../livrables/recette_geo/referentiel/emprises.gpkg
+    champ_zone: zone
+
+tolerances:
+  accrochage_m: 50      # les points de bord de commune peuvent déborder de la limite administrative
+
+couches:
+  pointlumineux:
+    fichier: 'PointLumineux_{zone}_V{version}.gpkg'
+    couche: PointLumineux
+    geometrie: Point
+    identifiant: identifiant
+    multi_autorise: false
+    champs:
+      identifiant:              {type: texte, obligatoire: true, unique: true, format: '^[A-Za-z0-9._-]+$'}
+      statut:                   {type: texte, obligatoire: true, domaine: [decommissioned, dismantled, functional, projected, underCommissionning, underConstruction]}
+      eclairagePublic:          {type: booleen, obligatoire: true}
+      usage:                    {type: texte, obligatoire: true, domaine: [A, B1, B2, B3, B4, C, D, E, F, G, PU, IN, AU, XX]}
+      typeSource:               {type: texte, obligatoire: true, domaine: [FLUO, HAL, IM, INC, IND, LED, SBP, SHP, VM, XEN, AU, XX]}
+      structure:                {type: texte, obligatoire: true, domaine: [APP, BOR, BL, COL, EN, LANT, PROJ, REGL, TUBE, VASQ, AU, XX]}
+      support:                  {type: texte, obligatoire: true, domaine: [BUS, CAT, ENS, MAT, MUR, OUV, PAN, POT, SOL, AU, XX]}
+      temperatureCouleur:       {type: entier, obligatoire: true, min: 1000, max: 10000}
+      puissance:                {type: reel, obligatoire: true, min: 0}
+      valideDe:                 {type: texte, obligatoire: true, format: '^[0-9]{8}$'}
+      extinctionNuit:           {type: booleen, obligatoire: true}
+      estAdaptatif:             {type: booleen, obligatoire: true}
+      fabricant:                {type: texte, format: '^[A-Za-z0-9._-]+$'}
+      modele:                   {type: texte, format: '^[A-Za-z0-9._-]+$'}
+      photometrie:              {type: texte, format: '^[A-Za-z0-9._-]+$'}
+      hauteurFeu:               {type: reel, min: 0}
+      fluxSource:               {type: reel, min: 0}
+      fluxLuminaire:            {type: reel, min: 0}
+      cie3:                     {type: reel, min: 0, max: 100}
+      ulrNominal:               {type: reel, min: 0, max: 100}
+      ulrInstalle:              {type: reel, min: 0, max: 100}
+      inclinaisonMax:           {type: reel}
+      inclinaisonInstallee:     {type: reel}
+      valideJusque:             {type: texte, format: '^[0-9]{8}$'}
+      datePremiereInstallation: {type: texte, format: '^[0-9]{8}$'}
+      profilNocturne:           {type: texte}
+      eclairageAdaptatif:       {type: texte, domaine: [AV, CO, EN, TG]}
+
+metadonnees:
+  titre_contient: 'EclExt'
+  tolerance_emprise_deg: 0.001
+  # Une étude indépendante ne publie ni courriel de producteur ni échelle, sans objet pour des points levés
+  elements_obligatoires: [identifiant, langue, contact, date_fiche, src, titre, date_ressource, resume, responsable,
+                          mots_cles, theme, emprise, contraintes, genealogie, conformite, format]
+
+decision:
+  bloquantes_max: 0
+  majeures_pour_mille_max: 20
+
+# Un lot dont les points sont hors du territoire annoncé ne peut pas être accepté
+gravites:
+  TOP_HORS_EMPRISE: bloquante

@@ -1,0 +1,52 @@
+﻿gestionnaire;attribut;obligatoire;points;taux_conforme;taux_renseigne;origine;champ_source;commentaire
+LOIRE;eclairagePublic;True;18104;99.7;99.7;converti;eclairagePublic;Publié en OUI/NON au lieu d'un booléen
+LOIRE;estAdaptatif;True;18104;100.0;100.0;converti;estAdaptatif;Publié en OUI/NON au lieu d'un booléen
+LOIRE;extinctionNuit;True;18104;100.0;100.0;converti;extinctionNuit;Publié en OUI/NON au lieu d'un booléen
+LOIRE;puissance;True;18104;98.2;98.2;direct;puissance;
+LOIRE;statut;True;18104;100.0;100.0;converti;statut;
+LOIRE;structure;True;18104;100.0;96.0;direct;structure;
+LOIRE;support;True;18104;100.0;95.0;direct;support;
+LOIRE;temperatureCouleur;True;18104;53.7;53.7;direct;TemperatureCouleur;Nom de colonne avec une majuscule initiale 
+LOIRE;typeSource;True;18104;100.0;87.1;direct;typeSource;
+LOIRE;usage;True;18104;100.0;99.7;direct;usage;
+LOIRE;valideDe;True;18104;0.0;0.0;absent;;Colonne absente du fichier publié
+LOIRE;datePremiereInstallation;False;18104;20.6;20.6;converti;datePremieInstallation;Nom de colonne mal orthographié, dates en JJ/MM/AAAA
+LOIRE;eclairageAdaptatif;False;18104;0.1;0.1;direct;eclairageAdaptatif;
+LOIRE;fabricant;False;18104;0.0;0.0;absent;;
+LOIRE;fluxSource;False;18104;13.4;13.4;direct;fluxSource;
+LOIRE;hauteurFeu;False;18104;93.2;93.2;direct;hauteurFeu;
+LOIRE;modele;False;18104;72.1;72.1;direct;modele;
+NANTES;eclairagePublic;True;97470;99.2;99.2;converti;statut;Valeurs Privé>Public et NMH à faire confirmer
+NANTES;estAdaptatif;True;97470;0.0;0.0;absent;;
+NANTES;extinctionNuit;True;97470;0.0;0.0;absent;;
+NANTES;puissance;True;97470;99.8;99.8;direct;puissance_du_foyer_w;
+NANTES;statut;True;97470;100.0;100.0;hypothese;;La source ne dit pas si le point fonctionne : un inventaire courant est supposé en service
+NANTES;structure;True;97470;100.0;1.3;deduit;type_de_foyer;Lue dans le nom du foyer quand il contient un mot explicite
+NANTES;support;True;97470;100.0;88.9;deduit;nature_du_support;Déduit du matériau du support
+NANTES;temperatureCouleur;True;97470;98.8;98.8;deduit;designation_de_la_lampe;Lue dans la désignation de la lampe, 5e élément
+NANTES;typeSource;True;97470;100.0;99.9;converti;type_de_lampe;
+NANTES;usage;True;97470;100.0;0.0;absent;;
+NANTES;valideDe;True;97470;0.0;0.0;absent;;
+NANTES;datePremiereInstallation;False;97470;0.0;0.0;absent;;
+NANTES;eclairageAdaptatif;False;97470;0.0;0.0;absent;;
+NANTES;fabricant;False;97470;0.0;0.0;absent;;
+NANTES;fluxSource;False;97470;8.6;8.6;deduit;designation_de_la_lampe;Lu dans la désignation quand elle le précise
+NANTES;hauteurFeu;False;97470;84.5;84.5;deduit;hauteur_du_support;Hauteur du support, admise par le standard quand la hauteur de feu est inconnue
+NANTES;modele;False;97470;99.4;99.4;direct;type_de_foyer;
+SDE18;eclairagePublic;True;63093;99.9;99.9;converti;client;
+SDE18;estAdaptatif;True;63093;0.0;0.0;absent;;
+SDE18;extinctionNuit;True;63093;0.0;0.0;absent;;
+SDE18;puissance;True;63093;0.0;0.0;absent;;La source publie les supports seulement
+SDE18;statut;True;63093;100.0;100.0;hypothese;;La source ne dit pas si le point fonctionne : un inventaire courant est supposé en service
+SDE18;structure;True;63093;100.0;5.4;deduit;typ_sup;Connu pour les bornes et les encastrés seulement
+SDE18;support;True;63093;100.0;93.8;converti;typ_sup;
+SDE18;temperatureCouleur;True;63093;0.0;0.0;absent;;La source publie les supports seulement
+SDE18;typeSource;True;63093;100.0;0.0;absent;;La source publie les supports seulement
+SDE18;usage;True;63093;100.0;0.0;absent;;
+SDE18;valideDe;True;63093;23.9;23.9;hypothese;date_pose;La date de pose du support remplace la date de mise en service du matériel
+SDE18;datePremiereInstallation;False;63093;0.0;0.0;absent;;
+SDE18;eclairageAdaptatif;False;63093;0.0;0.0;absent;;
+SDE18;fabricant;False;63093;0.0;0.0;absent;;
+SDE18;fluxSource;False;63093;0.0;0.0;absent;;
+SDE18;hauteurFeu;False;63093;79.3;79.3;deduit;hauteur;Hauteur du support, admise par le standard quand la hauteur de feu est inconnue
+SDE18;modele;False;63093;0.0;0.0;absent;;

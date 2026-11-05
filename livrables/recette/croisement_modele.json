@@ -1,0 +1,20 @@
+{
+ "lignes_modele": 97473,
+ "objets_compares": 97465,
+ "identifiants_partages_ecartes": 4,
+ "absents_de_la_base": 0,
+ "valeurs_renseignees": {
+  "typeSource": 97378,
+  "support": 86671,
+  "puissance": 97316,
+  "temperatureCouleur": 96276
+ },
+ "differences": {
+  "typeSource": 0,
+  "support": 0,
+  "puissance": 0,
+  "temperatureCouleur": 0
+ },
+ "exemples": [],
+ "ecart_position_max_m": 0.0
+}

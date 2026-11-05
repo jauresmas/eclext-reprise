@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>Guide pour l'entreprise de maintenance</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header>
+  <h1>Interventions d'éclairage : guide pour l'entreprise de maintenance</h1>
+  <p>Trouver ses interventions, les faire avancer, déclarer un changement de matériel. Temps de lecture : 5 minutes.</p>
+</header>
+
+<p>Ce projet QGIS vous montre les communes de votre périmètre et les interventions qui vous sont confiées. Vous tenez à jour leur avancement ; tout le reste est en lecture seule. Vous ne voyez pas les interventions des autres entreprises, et elles ne voient pas les vôtres.</p>
+<p class="source">Les exemples viennent de Rezé et Bouguenais, avec le matériel de la donnée ouverte de Nantes Métropole. Les signalements et les interventions sont un jeu d'essai, créé pour tester les fiches.</p>
+
+<h2>1. Ouvrir le projet et trouver son travail</h2>
+<p>Double-cliquez sur <code>eclairage_entreprise.qgz</code>, puis choisissez la vue <strong>Pannes et interventions</strong> dans le menu en forme d'œil au-dessus de la liste des couches.</p>
+<figure>
+  <img src="../captures/qgis_entreprise_interventions.png" alt="Carte de Rezé avec des triangles de signalement et des losanges d'intervention">
+  <figcaption>Un losange dans un triangle : une intervention sur un point signalé. La couleur du losange donne l'avancement.</figcaption>
+</figure>
+<p>Pour travailler en liste, cliquez sur la couche <strong>Interventions</strong> puis ouvrez sa table (<code>F6</code>). Le menu de filtre en bas à gauche propose des filtres enregistrés : « En retard », « À planifier », « En cours », « Réalisées ».</p>
+
+<h2>2. Faire avancer une intervention</h2>
+<ol>
+  <li>Cliquez sur la couche <strong>Interventions</strong>, puis sur le crayon (<strong>Basculer en mode édition</strong>).</li>
+  <li>Avec l'outil « i », cliquez sur le losange et ouvrez sa fiche, onglet <strong>Réalisation</strong>.</li>
+  <li>Changez l'état et remplissez ce qu'il demande (tableau ci-dessous), puis cliquez sur <strong>OK</strong>.</li>
+  <li>Cliquez sur <strong>Enregistrer les modifications</strong>, à côté du crayon. Rien n'est écrit avant cette étape : c'est là que la base contrôle la saisie.</li>
+</ol>
+<table>
+  <tr><th>État voulu</th><th>Possible depuis</th><th>À remplir</th></tr>
+  <tr><td>Planifiée</td><td>À planifier, En cours</td><td>Date prévue</td></tr>
+  <tr><td>En cours</td><td>Planifiée</td><td>Rien de plus</td></tr>
+  <tr><td>Réalisée</td><td>En cours</td><td>Date de réalisation et compte rendu ; le nouveau matériel s'il a changé</td></tr>
+  <tr><td>Annulée</td><td>À planifier, Planifiée, En cours</td><td>Rien de plus ; expliquez la raison dans le compte rendu</td></tr>
+  <tr><td>À planifier</td><td>Planifiée</td><td>Rien de plus : le rendez-vous est à refixer</td></tr>
+</table>
+<p>Une intervention réalisée ou annulée ne bouge plus, pour personne. Si elle a été close par erreur, prévenez l'administrateur : il en crée une nouvelle.</p>
+<figure class="petite">
+  <img src="../captures/fiche_intervention_realisation.png" alt="Fiche d'intervention, onglet Réalisation">
+  <figcaption>L'onglet « Réalisation » d'une intervention close.</figcaption>
+</figure>
+
+<h2>3. Déclarer un changement de matériel</h2>
+<p>Pour une intervention de nature « Changement de source » ou « Changement de luminaire », un bloc <strong>Nouveau matériel</strong> apparaît dans l'onglet Réalisation. Le type de source et la puissance sont obligatoires. La température de couleur est à remplir si vous la connaissez.</p>
+<p>Quand vous enregistrez l'état « Réalisée », la fiche du point lumineux se met à jour toute seule, avec la date de réalisation comme date de validité du matériel. Le signalement d'origine se clôt en même temps. Vous n'avez rien à ressaisir, et aucun autre fichier à renvoyer.</p>
+
+<h2>4. Quand l'enregistrement est refusé</h2>
+<table>
+  <tr><th>Message</th><th>Cause</th><th>Que faire</th></tr>
+  <tr><td>Passage de EN_COURS à A_PLANIFIER interdit</td><td>Le passage n'existe pas dans le tableau ci-dessus</td><td>Passez par l'état intermédiaire : ici, Planifiée.</td></tr>
+  <tr><td>Une intervention planifiée doit avoir une date prévue</td><td>Date prévue vide</td><td>Remplissez la date.</td></tr>
+  <tr><td>Une intervention réalisée doit avoir une date et un compte rendu</td><td>Date ou compte rendu vide</td><td>Remplissez-les.</td></tr>
+  <tr><td>Un changement de matériel doit préciser le point, le nouveau type de source et la nouvelle puissance</td><td>Bloc Nouveau matériel incomplet</td><td>Remplissez-le ; si le matériel n'a finalement pas changé, demandez à l'administrateur de corriger la nature.</td></tr>
+  <tr><td>Bouton OK grisé</td><td>Une case est rouge dans la fiche</td><td>Passez la souris sur la case : le motif s'affiche.</td></tr>
+</table>
+<p>Après un refus, corrigez puis enregistrez de nouveau. Pour tout abandonner, recliquez sur le crayon et choisissez de ne pas enregistrer.</p>
+
+<h2>5. Ce qui ne dépend pas de vous</h2>
+<ul>
+  <li><strong>La nature de l'intervention et l'entreprise titulaire</strong> sont fixées par l'administrateur. Si la nature est fausse (un dépannage qui devient un changement de luminaire), demandez-lui de la corriger avant de clore.</li>
+  <li><strong>La création des interventions</strong> revient aussi à l'administrateur, à partir des signalements.</li>
+  <li><strong>Une erreur sur le patrimoine</strong> repérée sur place (position, hauteur) se note dans le compte rendu.</li>
+</ul>
+</body></html>

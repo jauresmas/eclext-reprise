@@ -1,0 +1,93 @@
+source;champ_source;valeur_source;attribut_cible;valeur_cible;certitude;commentaire
+sde18;typ_sup;MAT;type_support;MAT;certain;
+sde18;typ_sup;POTEAU;type_support;POT;certain;
+sde18;typ_sup;FACADE;type_support;MUR;certain;
+sde18;typ_sup;CONSOLE SUR FACADE;type_support;MUR;certain;
+sde18;typ_sup;ENCASTRE DE SOL;type_support;SOL;certain;
+sde18;typ_sup;ENCASTRE;type_support;XX;arbitrage;Encastré au sol ou en mur : la source ne le dit pas
+sde18;typ_sup;BORNE;type_support;SOL;deduit;Une borne est posée au sol
+sde18;typ_sup;SUSPENDU;type_support;AU;certain;Pas de valeur équivalente dans la liste EclExt
+sde18;typ_sup;;type_support;XX;certain;Non renseigné
+sde18;typ_sup;ENCASTRE;structure;EN;certain;
+sde18;typ_sup;ENCASTRE DE SOL;structure;EN;certain;
+sde18;typ_sup;BORNE;structure;BOR;certain;
+sde18;type_pose;Sur massif;type_pose;MASSIF;certain;
+sde18;type_pose;Encastré;type_pose;ENCASTRE;certain;
+sde18;type_pose;Sur façade;type_pose;FACADE;certain;
+sde18;type_pose;Suspendu;type_pose;SUSPENDU;certain;
+sde18;type_pose;Autre...;type_pose;AUTRE;certain;
+sde18;type_massif;BETON;type_massif;BETON;certain;Ne dit pas si le massif est coulé ou préfabriqué
+sde18;type_massif;PREFA;type_massif;PREFABRIQUE;certain;
+sde18;type_massif;préfabriqué;type_massif;PREFABRIQUE;certain;
+sde18;type_massif;pré-fabriqué;type_massif;PREFABRIQUE;certain;
+sde18;type_massif;péfa;type_massif;PREFABRIQUE;certain;Coquille de saisie
+sde18;type_massif;COULER;type_massif;COULE;certain;
+sde18;type_massif;coulé;type_massif;COULE;certain;
+sde18;type_massif;muret;type_massif;MURET;certain;
+sde18;type_massif;néant;type_massif;SANS;certain;
+sde18;type_massif;200x200;dimension_massif;200x200;certain;Une dimension saisie dans le champ du type : déplacée
+sde18;type_massif;300*300;dimension_massif;300x300;certain;Une dimension saisie dans le champ du type : déplacée
+sde18;etat;Neuf;etat;NEUF;certain;
+sde18;etat;neuf;etat;NEUF;certain;
+sde18;etat;Bon;etat;BON;certain;
+sde18;etat;Moyen;etat;MOYEN;certain;
+sde18;etat;Mauvais;etat;MAUVAIS;certain;
+sde18;etat;Vétuste;etat;VETUSTE;certain;
+sde18;client;COMMUNE;proprietaire;COMMUNE;certain;
+sde18;client;COMMUNAUTE DE COMMUNES;proprietaire;EPCI;certain;
+sde18;client;PRIVE;proprietaire;PRIVE;certain;
+sde18;client;COMMUNE;eclairage_public;true;certain;
+sde18;client;COMMUNAUTE DE COMMUNES;eclairage_public;true;certain;
+sde18;client;PRIVE;eclairage_public;false;certain;
+sde18;prise_guirlande_illumination;Oui;prise_illumination;true;certain;
+sde18;prise_guirlande_illumination;OUI AVEC PROTECTION;prise_illumination;true;certain;
+sde18;prise_guirlande_illumination;Non;prise_illumination;false;certain;
+sde18;prise_guirlande_illumination;NON;prise_illumination;false;certain;
+sde18;prise_guirlande_illumination;v;prise_illumination;;arbitrage;Coquille de saisie : valeur illisible
+nantes;type_de_lampe;LED;type_source;LED;certain;
+nantes;type_de_lampe;SHP;type_source;SHP;certain;
+nantes;type_de_lampe;IM;type_source;IM;certain;
+nantes;type_de_lampe;IMC;type_source;IM;certain;Iodures métalliques à brûleur céramique (désignation IMCERA)
+nantes;type_de_lampe;MBF;type_source;VM;certain;Ballon fluorescent : vapeur de mercure haute pression
+nantes;type_de_lampe;TF;type_source;FLUO;certain;Tube fluorescent
+nantes;type_de_lampe;FC;type_source;FLUO;certain;Fluorescence compacte
+nantes;type_de_lampe;TL;type_source;FLUO;deduit;Tube linéaire
+nantes;type_de_lampe;DIC;type_source;HAL;deduit;Désignation DICH : lampe dichroïque, supposée halogène
+nantes;type_de_lampe;IC;type_source;INC;deduit;Incandescence
+nantes;type_de_lampe;HAL;type_source;HAL;certain;
+nantes;type_de_lampe;;type_source;XX;certain;Non renseigné
+nantes;statut;Public;eclairage_public;true;certain;
+nantes;statut;Communal;eclairage_public;true;certain;
+nantes;statut;Privé;eclairage_public;false;certain;
+nantes;statut;Privé>Public;eclairage_public;true;deduit;Compris comme un ouvrage privé passé au public : à faire confirmer
+nantes;statut;Communal >Public;eclairage_public;true;deduit;Compris comme un ouvrage communal passé à la métropole : à faire confirmer
+nantes;statut;NMH;eclairage_public;;arbitrage;Sigle non expliqué par la source : la valeur reste inconnue
+nantes;statut;non renseigné;eclairage_public;;certain;Non renseigné
+nantes;nature_du_support;ACIER;type_support;MAT;deduit;Support métallique compris comme un mât
+nantes;nature_du_support;ACIER GALVANISE;type_support;MAT;deduit;Support métallique compris comme un mât
+nantes;nature_du_support;ACIER GALVA PEINT;type_support;MAT;deduit;Support métallique compris comme un mât
+nantes;nature_du_support;ACIER THERMOL PEINT;type_support;MAT;deduit;Support métallique compris comme un mât
+nantes;nature_du_support;ALUMINIUM;type_support;MAT;deduit;Support métallique compris comme un mât
+nantes;nature_du_support;ALUMINIUM ANODISE;type_support;MAT;deduit;Support métallique compris comme un mât
+nantes;nature_du_support;ALUMINIUM PEINT;type_support;MAT;deduit;Support métallique compris comme un mât
+nantes;nature_du_support;FER;type_support;MAT;deduit;Support métallique compris comme un mât
+nantes;nature_du_support;FONTE;type_support;MAT;deduit;Support métallique compris comme un mât
+nantes;nature_du_support;FONTE PEINT;type_support;MAT;deduit;Support métallique compris comme un mât
+nantes;nature_du_support;INOX;type_support;MAT;deduit;Support métallique compris comme un mât
+nantes;nature_du_support;BETON;type_support;POT;deduit;Béton compris comme un poteau de réseau
+nantes;nature_du_support;BETON GRAVILLONNE;type_support;POT;deduit;Béton compris comme un poteau de réseau
+nantes;nature_du_support;CIMENT;type_support;POT;deduit;Compris comme un poteau de réseau
+nantes;nature_du_support;BOIS;type_support;POT;deduit;Bois compris comme un poteau de réseau
+nantes;nature_du_support;PVC;type_support;XX;arbitrage;Matériau sans forme connue : borne ou petit mât
+nantes;nature_du_support;PLASTIQUE;type_support;XX;arbitrage;Matériau sans forme connue : borne ou petit mât
+nantes;nature_du_support;;type_support;XX;certain;Non renseigné
+nantes;mot du type de foyer;BOULE;structure;BL;deduit;Mot lu dans le nom du foyer
+nantes;mot du type de foyer;PROJECTEUR;structure;PROJ;deduit;Mot lu dans le nom du foyer
+nantes;mot du type de foyer;BORNE;structure;BOR;deduit;Mot lu dans le nom du foyer
+nantes;mot du type de foyer;LANTERNE;structure;LANT;deduit;Mot lu dans le nom du foyer
+nantes;mot du type de foyer;REGLETTE;structure;REGL;deduit;Mot lu dans le nom du foyer
+nantes;mot du type de foyer;ENCASTRE;structure;EN;deduit;Mot lu dans le nom du foyer
+nantes;mot du type de foyer;COLONNE;structure;COL;deduit;Mot lu dans le nom du foyer
+loire;statut;En service;statut;functional;certain;
+loire;eclairagepublic;OUI;eclairage_public;true;certain;
+loire;eclairagepublic;NON;eclairage_public;false;certain;

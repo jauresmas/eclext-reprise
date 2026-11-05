@@ -1,0 +1,1474 @@
+[
+ {
+  "numero": "T-REP-01 [SDE18]",
+  "libelle": "chaque ligne de la source est reprise, fusionnée ou écartée, écart nul",
+  "resultat": "réussi",
+  "constat": "63093 lignes = 63093 points + 0 fusionnées + 0 écartées, écart 0",
+  "detail": "",
+  "duree_s": 0.13
+ },
+ {
+  "numero": "T-REP-01 [NANTES]",
+  "libelle": "chaque ligne de la source est reprise, fusionnée ou écartée, écart nul",
+  "resultat": "réussi",
+  "constat": "97473 lignes = 97473 points + 0 fusionnées + 0 écartées, écart 0",
+  "detail": "",
+  "duree_s": 0.12
+ },
+ {
+  "numero": "T-REP-01 [LOIRE]",
+  "libelle": "chaque ligne de la source est reprise, fusionnée ou écartée, écart nul",
+  "resultat": "réussi",
+  "constat": "18147 lignes = 18104 points + 33 fusionnées + 10 écartées, écart 0",
+  "detail": "",
+  "duree_s": 0.13
+ },
+ {
+  "numero": "T-REP-02",
+  "libelle": "les règles de reprise et de valeurs non prévues ne relèvent aucun écart",
+  "resultat": "réussi",
+  "constat": "0 écart sur REP_01 à REP_04 et COH_01",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-REP-03",
+  "libelle": "toute ligne non reprise de la publication Loire porte un motif et son contenu",
+  "resultat": "réussi",
+  "constat": "43 lignes en rejet, 0 sans motif",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-REP-04",
+  "libelle": "pas de doublon d'identifiant par gestionnaire, y compris à l'export",
+  "resultat": "réussi",
+  "constat": "0 identifiant en double",
+  "detail": "",
+  "duree_s": 0.36
+ },
+ {
+  "numero": "T-REP-05",
+  "libelle": "les 4 identifiants de foyer portés par deux objets à Nantes sont gardés, suffixés",
+  "resultat": "réussi",
+  "constat": "4 points suffixés -D2",
+  "detail": "",
+  "duree_s": 0.07
+ },
+ {
+  "numero": "T-REP-06",
+  "libelle": "géométries valides, en Lambert 93, sur le territoire métropolitain",
+  "resultat": "réussi",
+  "constat": "173290 supports, 0 invalides, 0 hors de la métropole",
+  "detail": "",
+  "duree_s": 0.13
+ },
+ {
+  "numero": "T-REP-07",
+  "libelle": "la date 01/01/1970 du syndicat n'est pas reprise, mais elle est signalée",
+  "resultat": "réussi",
+  "constat": "0 reprises, 117 signalées par TEM_01",
+  "detail": "",
+  "duree_s": 0.09
+ },
+ {
+  "numero": "T-REP-08",
+  "libelle": "les saillies probablement en millimètres ne sont pas converties en silence",
+  "resultat": "réussi",
+  "constat": "saillie maximale reprise 11.00 m, 877 valeurs signalées par VAL_05",
+  "detail": "",
+  "duree_s": 0.1
+ },
+ {
+  "numero": "T-REP-09",
+  "libelle": "toute valeur cible des correspondances existe dans la liste du standard",
+  "resultat": "réussi",
+  "constat": "92 correspondances, 0 orphelines",
+  "detail": "",
+  "duree_s": 0.01
+ },
+ {
+  "numero": "T-REP-10",
+  "libelle": "l'hypothèse « un point par support » du syndicat reste visible sur chaque point",
+  "resultat": "réussi",
+  "constat": "63093 points sur 63093 portent l'hypothèse",
+  "detail": "",
+  "duree_s": 0.08
+ },
+ {
+  "numero": "T-REP-11",
+  "libelle": "le rapprochement des deux bases du Cher classe chaque objet",
+  "resultat": "réussi",
+  "constat": "{'absent_ccf': 4, 'absent_syndicat': 11, 'apparie': 5347, 'recode_probable': 14}",
+  "detail": "",
+  "duree_s": 0.01
+ },
+ {
+  "numero": "T-CTR-01 [POS_02]",
+  "libelle": "une erreur posée sur un objet précis est retrouvée par la règle, sur cet objet",
+  "resultat": "réussi",
+  "constat": "POS_02 relève EPRZ001001",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-CTR-01 [POS_03]",
+  "libelle": "une erreur posée sur un objet précis est retrouvée par la règle, sur cet objet",
+  "resultat": "réussi",
+  "constat": "POS_03 relève EPBO001001",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-CTR-01 [POS_04]",
+  "libelle": "une erreur posée sur un objet précis est retrouvée par la règle, sur cet objet",
+  "resultat": "réussi",
+  "constat": "POS_04 relève EPRZ001001",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-CTR-01 [COH_05]",
+  "libelle": "une erreur posée sur un objet précis est retrouvée par la règle, sur cet objet",
+  "resultat": "réussi",
+  "constat": "COH_05 relève EPOR001",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-CTR-01 [TEM_03]",
+  "libelle": "une erreur posée sur un objet précis est retrouvée par la règle, sur cet objet",
+  "resultat": "réussi",
+  "constat": "TEM_03 relève EPSH002001",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-CTR-01 [VAL_06]",
+  "libelle": "une erreur posée sur un objet précis est retrouvée par la règle, sur cet objet",
+  "resultat": "réussi",
+  "constat": "VAL_06 relève EPRZ170049",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-CTR-02",
+  "libelle": "un point retiré sans motif casse le bilan et le signale en bloquant",
+  "resultat": "réussi",
+  "constat": "REP_01 mesure un écart de 1",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-CTR-03",
+  "libelle": "une valeur source absente des correspondances ressort, au lieu d'être perdue",
+  "resultat": "réussi",
+  "constat": "1 écart COH_01 sur VALEUR_INCONNUE",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-CTR-04",
+  "libelle": "une décision déjà prise sur un écart survit à une nouvelle passe de contrôle",
+  "resultat": "réussi",
+  "constat": "décision relue : faux_positif",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-CTR-05",
+  "libelle": "la publication titrée Loire, située en Haute-Savoie, est bloquée par POS_05",
+  "resultat": "réussi",
+  "constat": "LOIRE : 18104 supports, départements trouvés : 74",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-STR-01 [type_source-XENON]",
+  "libelle": "une valeur hors liste ou hors bornes est refusée sur le point lumineux",
+  "resultat": "réussi",
+  "constat": "ForeignKeyViolation",
+  "detail": "",
+  "duree_s": 0.03
+ },
+ {
+  "numero": "T-STR-01 [usage-Z9]",
+  "libelle": "une valeur hors liste ou hors bornes est refusée sur le point lumineux",
+  "resultat": "réussi",
+  "constat": "ForeignKeyViolation",
+  "detail": "",
+  "duree_s": 0.03
+ },
+ {
+  "numero": "T-STR-01 [structure-ABC]",
+  "libelle": "une valeur hors liste ou hors bornes est refusée sur le point lumineux",
+  "resultat": "réussi",
+  "constat": "ForeignKeyViolation",
+  "detail": "",
+  "duree_s": 0.03
+ },
+ {
+  "numero": "T-STR-01 [statut-en panne]",
+  "libelle": "une valeur hors liste ou hors bornes est refusée sur le point lumineux",
+  "resultat": "réussi",
+  "constat": "ForeignKeyViolation",
+  "detail": "",
+  "duree_s": 0.03
+ },
+ {
+  "numero": "T-STR-01 [temperature_couleur-500]",
+  "libelle": "une valeur hors liste ou hors bornes est refusée sur le point lumineux",
+  "resultat": "réussi",
+  "constat": "CheckViolation",
+  "detail": "",
+  "duree_s": 0.03
+ },
+ {
+  "numero": "T-STR-01 [puissance_w--10]",
+  "libelle": "une valeur hors liste ou hors bornes est refusée sur le point lumineux",
+  "resultat": "réussi",
+  "constat": "CheckViolation",
+  "detail": "",
+  "duree_s": 0.03
+ },
+ {
+  "numero": "T-STR-02 [type_support-XYZ]",
+  "libelle": "une valeur hors liste ou hors bornes est refusée sur le support",
+  "resultat": "réussi",
+  "constat": "ForeignKeyViolation",
+  "detail": "",
+  "duree_s": 0.01
+ },
+ {
+  "numero": "T-STR-02 [hauteur_m-90]",
+  "libelle": "une valeur hors liste ou hors bornes est refusée sur le support",
+  "resultat": "réussi",
+  "constat": "CheckViolation",
+  "detail": "",
+  "duree_s": 0.01
+ },
+ {
+  "numero": "T-STR-02 [etat-cass\\xe9]",
+  "libelle": "une valeur hors liste ou hors bornes est refusée sur le support",
+  "resultat": "réussi",
+  "constat": "ForeignKeyViolation",
+  "detail": "",
+  "duree_s": 0.01
+ },
+ {
+  "numero": "T-STR-02 [date_pose-1800-01-01]",
+  "libelle": "une valeur hors liste ou hors bornes est refusée sur le support",
+  "resultat": "réussi",
+  "constat": "CheckViolation",
+  "detail": "",
+  "duree_s": 0.01
+ },
+ {
+  "numero": "T-STR-03",
+  "libelle": "deux points d'un même gestionnaire ne partagent pas un identifiant",
+  "resultat": "réussi",
+  "constat": "identifiant refusé",
+  "detail": "",
+  "duree_s": 0.01
+ },
+ {
+  "numero": "T-STR-04",
+  "libelle": "un point lumineux sans support, ou sans commune, est refusé",
+  "resultat": "réussi",
+  "constat": "support et commune obligatoires",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-STR-05",
+  "libelle": "un support qui porte un point ne peut pas être supprimé",
+  "resultat": "réussi",
+  "constat": "suppression refusée",
+  "detail": "",
+  "duree_s": 0.02
+ },
+ {
+  "numero": "T-STR-06 [22:00HL-True]",
+  "libelle": "le format d'heure de la section 3.5 du standard est contrôlé",
+  "resultat": "réussi",
+  "constat": "22:00HL : True",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-STR-06 [06:30TU-True]",
+  "libelle": "le format d'heure de la section 3.5 du standard est contrôlé",
+  "resultat": "réussi",
+  "constat": "06:30TU : True",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-STR-06 [+30MN-True]",
+  "libelle": "le format d'heure de la section 3.5 du standard est contrôlé",
+  "resultat": "réussi",
+  "constat": "+30MN : True",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-STR-06 [24:00HL-False]",
+  "libelle": "le format d'heure de la section 3.5 du standard est contrôlé",
+  "resultat": "réussi",
+  "constat": "24:00HL : False",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-STR-06 [22h00-False]",
+  "libelle": "le format d'heure de la section 3.5 du standard est contrôlé",
+  "resultat": "réussi",
+  "constat": "22h00 : False",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-STR-06 [22:60HL-False]",
+  "libelle": "le format d'heure de la section 3.5 du standard est contrôlé",
+  "resultat": "réussi",
+  "constat": "22:60HL : False",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-STR-06 [2200-False]",
+  "libelle": "le format d'heure de la section 3.5 du standard est contrôlé",
+  "resultat": "réussi",
+  "constat": "2200 : False",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-STR-07 [\\xc9clairage public-Eclairage_public]",
+  "libelle": "les chaînes exportées n'ont que les caractères permis par la section 4.4",
+  "resultat": "réussi",
+  "constat": "Éclairage public donne Eclairage_public",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-STR-07 [a/b c-a_b_c]",
+  "libelle": "les chaînes exportées n'ont que les caractères permis par la section 4.4",
+  "resultat": "réussi",
+  "constat": "a/b c donne a_b_c",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-STR-07 [LED-3000.k_v2-LED-3000.k_v2]",
+  "libelle": "les chaînes exportées n'ont que les caractères permis par la section 4.4",
+  "resultat": "réussi",
+  "constat": "LED-3000.k_v2 donne LED-3000.k_v2",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-STR-08",
+  "libelle": "les listes de valeurs ont le nombre de codes du standard, avec XX et AU là où il les prévoit",
+  "resultat": "réussi",
+  "constat": "{'usage': 14, 'type_source': 12, 'structure_luminaire': 12, 'support_luminaire': 11, 'eclairage_adaptatif': 4, 'statut_installation': 6}",
+  "detail": "",
+  "duree_s": 0.01
+ },
+ {
+  "numero": "T-ROL-01 [metier.point_lumineux-demo_commune-communes0]",
+  "libelle": "un compte ne lit que les communes de son périmètre",
+  "resultat": "réussi",
+  "constat": "6539 lignes, communes ['44143']",
+  "detail": "",
+  "duree_s": 0.08
+ },
+ {
+  "numero": "T-ROL-01 [metier.point_lumineux-demo_entreprise-communes1]",
+  "libelle": "un compte ne lit que les communes de son périmètre",
+  "resultat": "réussi",
+  "constat": "10446 lignes, communes ['44020', '44143']",
+  "detail": "",
+  "duree_s": 0.1
+ },
+ {
+  "numero": "T-ROL-01 [metier.point_lumineux-demo_entreprise_b-communes2]",
+  "libelle": "un compte ne lit que les communes de son périmètre",
+  "resultat": "réussi",
+  "constat": "4687 lignes, communes ['44215']",
+  "detail": "",
+  "duree_s": 0.11
+ },
+ {
+  "numero": "T-ROL-01 [metier.support-demo_commune-communes0]",
+  "libelle": "un compte ne lit que les communes de son périmètre",
+  "resultat": "réussi",
+  "constat": "6332 lignes, communes ['44143']",
+  "detail": "",
+  "duree_s": 0.09
+ },
+ {
+  "numero": "T-ROL-01 [metier.support-demo_entreprise-communes1]",
+  "libelle": "un compte ne lit que les communes de son périmètre",
+  "resultat": "réussi",
+  "constat": "10156 lignes, communes ['44020', '44143']",
+  "detail": "",
+  "duree_s": 0.11
+ },
+ {
+  "numero": "T-ROL-01 [metier.support-demo_entreprise_b-communes2]",
+  "libelle": "un compte ne lit que les communes de son périmètre",
+  "resultat": "réussi",
+  "constat": "4598 lignes, communes ['44215']",
+  "detail": "",
+  "duree_s": 0.09
+ },
+ {
+  "numero": "T-ROL-01 [metier.armoire-demo_commune-communes0]",
+  "libelle": "un compte ne lit que les communes de son périmètre",
+  "resultat": "réussi",
+  "constat": "136 lignes, communes ['44143']",
+  "detail": "",
+  "duree_s": 0.05
+ },
+ {
+  "numero": "T-ROL-01 [metier.armoire-demo_entreprise-communes1]",
+  "libelle": "un compte ne lit que les communes de son périmètre",
+  "resultat": "réussi",
+  "constat": "241 lignes, communes ['44020', '44143']",
+  "detail": "",
+  "duree_s": 0.05
+ },
+ {
+  "numero": "T-ROL-01 [metier.armoire-demo_entreprise_b-communes2]",
+  "libelle": "un compte ne lit que les communes de son périmètre",
+  "resultat": "réussi",
+  "constat": "160 lignes, communes ['44215']",
+  "detail": "",
+  "duree_s": 0.05
+ },
+ {
+  "numero": "T-ROL-01 [controle.ecart-demo_commune-communes0]",
+  "libelle": "un compte ne lit que les communes de son périmètre",
+  "resultat": "réussi",
+  "constat": "5 lignes, communes ['44143']",
+  "detail": "",
+  "duree_s": 0.05
+ },
+ {
+  "numero": "T-ROL-01 [controle.ecart-demo_entreprise-communes1]",
+  "libelle": "un compte ne lit que les communes de son périmètre",
+  "resultat": "réussi",
+  "constat": "143 lignes, communes ['44020', '44143']",
+  "detail": "",
+  "duree_s": 0.05
+ },
+ {
+  "numero": "T-ROL-01 [controle.ecart-demo_entreprise_b-communes2]",
+  "libelle": "un compte ne lit que les communes de son périmètre",
+  "resultat": "réussi",
+  "constat": "46 lignes, communes ['44215']",
+  "detail": "",
+  "duree_s": 0.05
+ },
+ {
+  "numero": "T-ROL-02",
+  "libelle": "l'administrateur voit tout le territoire",
+  "resultat": "réussi",
+  "constat": "178670 points",
+  "detail": "",
+  "duree_s": 0.08
+ },
+ {
+  "numero": "T-ROL-03",
+  "libelle": "une entreprise ne voit que ses interventions, pas celles d'une autre",
+  "resultat": "réussi",
+  "constat": "entreprise A : [(1,)], entreprise B : [(2,)]",
+  "detail": "",
+  "duree_s": 0.09
+ },
+ {
+  "numero": "T-ROL-04 [UPDATE metier.point_lumineux SET puissance_w = 1-demo_commune]",
+  "libelle": "hors de sa fiche, un compte ne peut ni écrire ni supprimer",
+  "resultat": "réussi",
+  "constat": "refusé par la base",
+  "detail": "",
+  "duree_s": 0.05
+ },
+ {
+  "numero": "T-ROL-04 [UPDATE metier.point_lumineux SET puissance_w = 1-demo_entreprise]",
+  "libelle": "hors de sa fiche, un compte ne peut ni écrire ni supprimer",
+  "resultat": "réussi",
+  "constat": "refusé par la base",
+  "detail": "",
+  "duree_s": 0.05
+ },
+ {
+  "numero": "T-ROL-04 [UPDATE metier.point_lumineux SET puissance_w = 1-demo_lecture]",
+  "libelle": "hors de sa fiche, un compte ne peut ni écrire ni supprimer",
+  "resultat": "réussi",
+  "constat": "refusé par la base",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-ROL-04 [DELETE FROM metier.support-demo_commune]",
+  "libelle": "hors de sa fiche, un compte ne peut ni écrire ni supprimer",
+  "resultat": "réussi",
+  "constat": "refusé par la base",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-ROL-04 [DELETE FROM metier.support-demo_entreprise]",
+  "libelle": "hors de sa fiche, un compte ne peut ni écrire ni supprimer",
+  "resultat": "réussi",
+  "constat": "refusé par la base",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-ROL-04 [DELETE FROM metier.support-demo_lecture]",
+  "libelle": "hors de sa fiche, un compte ne peut ni écrire ni supprimer",
+  "resultat": "réussi",
+  "constat": "refusé par la base",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-ROL-04 [INSERT INTO exploitation.intervention (point_id, nature, insee, geom) SELECT id, 'CONTROLE', insee, geom FROM metier.point_lumineux LIMIT 1-demo_commune]",
+  "libelle": "hors de sa fiche, un compte ne peut ni écrire ni supprimer",
+  "resultat": "réussi",
+  "constat": "refusé par la base",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-ROL-04 [INSERT INTO exploitation.intervention (point_id, nature, insee, geom) SELECT id, 'CONTROLE', insee, geom FROM metier.point_lumineux LIMIT 1-demo_entreprise]",
+  "libelle": "hors de sa fiche, un compte ne peut ni écrire ni supprimer",
+  "resultat": "réussi",
+  "constat": "refusé par la base",
+  "detail": "",
+  "duree_s": 0.05
+ },
+ {
+  "numero": "T-ROL-04 [INSERT INTO exploitation.intervention (point_id, nature, insee, geom) SELECT id, 'CONTROLE', insee, geom FROM metier.point_lumineux LIMIT 1-demo_lecture]",
+  "libelle": "hors de sa fiche, un compte ne peut ni écrire ni supprimer",
+  "resultat": "réussi",
+  "constat": "refusé par la base",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-ROL-04 [DELETE FROM exploitation.signalement-demo_commune]",
+  "libelle": "hors de sa fiche, un compte ne peut ni écrire ni supprimer",
+  "resultat": "réussi",
+  "constat": "refusé par la base",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-ROL-04 [DELETE FROM exploitation.signalement-demo_entreprise]",
+  "libelle": "hors de sa fiche, un compte ne peut ni écrire ni supprimer",
+  "resultat": "réussi",
+  "constat": "refusé par la base",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-ROL-04 [DELETE FROM exploitation.signalement-demo_lecture]",
+  "libelle": "hors de sa fiche, un compte ne peut ni écrire ni supprimer",
+  "resultat": "réussi",
+  "constat": "refusé par la base",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-ROL-04 [DROP TABLE exploitation.signalement-demo_commune]",
+  "libelle": "hors de sa fiche, un compte ne peut ni écrire ni supprimer",
+  "resultat": "réussi",
+  "constat": "refusé par la base",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-ROL-04 [DROP TABLE exploitation.signalement-demo_entreprise]",
+  "libelle": "hors de sa fiche, un compte ne peut ni écrire ni supprimer",
+  "resultat": "réussi",
+  "constat": "refusé par la base",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-ROL-04 [DROP TABLE exploitation.signalement-demo_lecture]",
+  "libelle": "hors de sa fiche, un compte ne peut ni écrire ni supprimer",
+  "resultat": "réussi",
+  "constat": "refusé par la base",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-ROL-05",
+  "libelle": "le compte de lecture lit le format EclExt, pas les tables de travail",
+  "resultat": "réussi",
+  "constat": "178670 points au format d'échange",
+  "detail": "",
+  "duree_s": 0.19
+ },
+ {
+  "numero": "T-ROL-06",
+  "libelle": "une collectivité signale dans sa commune, jamais ailleurs",
+  "resultat": "réussi",
+  "constat": "accepté à 44143 par demo_commune",
+  "detail": "",
+  "duree_s": 0.1
+ },
+ {
+  "numero": "T-ROL-07",
+  "libelle": "une entreprise ne change ni la nature, ni le titulaire, ni l'objet de l'intervention",
+  "resultat": "réussi",
+  "constat": "nature, titulaire et objet refusés ; compte rendu accepté",
+  "detail": "",
+  "duree_s": 0.06
+ },
+ {
+  "numero": "T-ROL-08",
+  "libelle": "une entreprise ne peut pas modifier l'intervention d'une autre",
+  "resultat": "réussi",
+  "constat": "0 ligne modifiée",
+  "detail": "",
+  "duree_s": 0.05
+ },
+ {
+  "numero": "T-ROL-09",
+  "libelle": "aucun compte de démonstration n'est superutilisateur ni propriétaire d'objet",
+  "resultat": "réussi",
+  "constat": "9 rôles vérifiés",
+  "detail": "",
+  "duree_s": 0.01
+ },
+ {
+  "numero": "T-ROL-10",
+  "libelle": "un profil ordinaire ne peut pas créer de compte",
+  "resultat": "réussi",
+  "constat": "refusé par la base",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-EXP-01",
+  "libelle": "la commune et la position d'une fiche viennent de l'objet choisi",
+  "resultat": "réussi",
+  "constat": "commune 44143, écart de position 0.0 m",
+  "detail": "",
+  "duree_s": 0.02
+ },
+ {
+  "numero": "T-EXP-02",
+  "libelle": "une fiche sans objet est refusée",
+  "resultat": "réussi",
+  "constat": "refusée par la base",
+  "detail": "",
+  "duree_s": 0.02
+ },
+ {
+  "numero": "T-EXP-03 [A_PLANIFIER-REALISEE]",
+  "libelle": "on ne saute pas d'étape dans le suivi d'une intervention",
+  "resultat": "réussi",
+  "constat": "A_PLANIFIER vers REALISEE refusé",
+  "detail": "",
+  "duree_s": 0.02
+ },
+ {
+  "numero": "T-EXP-03 [A_PLANIFIER-EN_COURS]",
+  "libelle": "on ne saute pas d'étape dans le suivi d'une intervention",
+  "resultat": "réussi",
+  "constat": "A_PLANIFIER vers EN_COURS refusé",
+  "detail": "",
+  "duree_s": 0.02
+ },
+ {
+  "numero": "T-EXP-03 [PLANIFIEE-REALISEE]",
+  "libelle": "on ne saute pas d'étape dans le suivi d'une intervention",
+  "resultat": "réussi",
+  "constat": "PLANIFIEE vers REALISEE refusé",
+  "detail": "",
+  "duree_s": 0.03
+ },
+ {
+  "numero": "T-EXP-04",
+  "libelle": "une intervention réalisée ou annulée ne repart pas en arrière",
+  "resultat": "réussi",
+  "constat": "annulée définitivement",
+  "detail": "",
+  "duree_s": 0.02
+ },
+ {
+  "numero": "T-EXP-05",
+  "libelle": "une intervention planifiée doit avoir une date prévue",
+  "resultat": "réussi",
+  "constat": "refusée sans date",
+  "detail": "",
+  "duree_s": 0.02
+ },
+ {
+  "numero": "T-EXP-06 [None-Fait]",
+  "libelle": "une intervention réalisée doit avoir une date et un compte rendu",
+  "resultat": "réussi",
+  "constat": "refusée",
+  "detail": "",
+  "duree_s": 0.03
+ },
+ {
+  "numero": "T-EXP-06 [2026-11-01-None]",
+  "libelle": "une intervention réalisée doit avoir une date et un compte rendu",
+  "resultat": "réussi",
+  "constat": "refusée",
+  "detail": "",
+  "duree_s": 0.03
+ },
+ {
+  "numero": "T-EXP-06 [2026-11-01-   ]",
+  "libelle": "une intervention réalisée doit avoir une date et un compte rendu",
+  "resultat": "réussi",
+  "constat": "refusée",
+  "detail": "",
+  "duree_s": 0.02
+ },
+ {
+  "numero": "T-EXP-07",
+  "libelle": "un changement de matériel doit préciser la nouvelle source et la nouvelle puissance",
+  "resultat": "réussi",
+  "constat": "refusé sans nouveau matériel",
+  "detail": "",
+  "duree_s": 0.03
+ },
+ {
+  "numero": "T-EXP-08",
+  "libelle": "un changement de source met à jour le point, sa date valideDe, et le format EclExt",
+  "resultat": "réussi",
+  "constat": "SHP 77.0 W devient LED 40.0 W, valideDe 20261015",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-EXP-09",
+  "libelle": "un dépannage à l'identique ne change pas le matériel, ni sa date de validité",
+  "resultat": "réussi",
+  "constat": "point inchangé",
+  "detail": "",
+  "duree_s": 0.03
+ },
+ {
+  "numero": "T-EXP-10",
+  "libelle": "une dépose passe le point au statut dismantled, avec sa date de fin de validité",
+  "resultat": "réussi",
+  "constat": "dismantled, valideJusque 20261020",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-EXP-11",
+  "libelle": "le signalement passe à pris en compte, puis à clos quand l'intervention est réalisée",
+  "resultat": "réussi",
+  "constat": "OUVERT, PRIS_EN_COMPTE, puis CLOS",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-EXP-12",
+  "libelle": "l'entreprise peut clore elle-même un remplacement, le patrimoine suit malgré ses droits limités",
+  "resultat": "réussi",
+  "constat": "type de source lu après clôture : LED",
+  "detail": "",
+  "duree_s": 0.12
+ },
+ {
+  "numero": "T-EXP-13",
+  "libelle": "chaque changement est journalisé avec son auteur, ses valeurs avant et après",
+  "resultat": "réussi",
+  "constat": "SHP vers LED, par postgres",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-EXP-14",
+  "libelle": "une décision sur un écart de contrôle est signée par le compte qui la prend",
+  "resultat": "réussi",
+  "constat": "signée par demo_admin",
+  "detail": "",
+  "duree_s": 0.05
+ },
+ {
+  "numero": "T-EXP-15",
+  "libelle": "toutes les fiches d'exploitation de la base sont marquées jeu d'essai",
+  "resultat": "réussi",
+  "constat": "14 fiches sur 14",
+  "detail": "",
+  "duree_s": 0.01
+ },
+ {
+  "numero": "T-ECL-01 [SDE18]",
+  "libelle": "le dossier contient les données et une fiche de métadonnées nommée selon la section 5.2",
+  "resultat": "réussi",
+  "constat": "fr-241800549-eclairage-exterieur-Cher-20261105.xml",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-ECL-01 [NANTES]",
+  "libelle": "le dossier contient les données et une fiche de métadonnées nommée selon la section 5.2",
+  "resultat": "réussi",
+  "constat": "fr-244400404-eclairage-exterieur-Nantes-Metropole-20261105.xml",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-ECL-01 [LOIRE]",
+  "libelle": "le dossier contient les données et une fiche de métadonnées nommée selon la section 5.2",
+  "resultat": "réussi",
+  "constat": "fr-200065886-eclairage-exterieur-publication-Loire-20261105.xml",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-ECL-02 [SDE18]",
+  "libelle": "le fichier a autant de points que la base, sans point retiré",
+  "resultat": "réussi",
+  "constat": "63093 points dans le fichier, 63093 dans la base",
+  "detail": "",
+  "duree_s": 0.14
+ },
+ {
+  "numero": "T-ECL-02 [NANTES]",
+  "libelle": "le fichier a autant de points que la base, sans point retiré",
+  "resultat": "réussi",
+  "constat": "97473 points dans le fichier, 97473 dans la base",
+  "detail": "",
+  "duree_s": 0.18
+ },
+ {
+  "numero": "T-ECL-02 [LOIRE]",
+  "libelle": "le fichier a autant de points que la base, sans point retiré",
+  "resultat": "réussi",
+  "constat": "18104 points dans le fichier, 18104 dans la base",
+  "detail": "",
+  "duree_s": 0.09
+ },
+ {
+  "numero": "T-ECL-03 [SDE18]",
+  "libelle": "géométrie ponctuelle en Lambert 93, nom de couche et de colonnes du standard",
+  "resultat": "réussi",
+  "constat": "Point, 2154, 27 attributs",
+  "detail": "",
+  "duree_s": 0.01
+ },
+ {
+  "numero": "T-ECL-03 [NANTES]",
+  "libelle": "géométrie ponctuelle en Lambert 93, nom de couche et de colonnes du standard",
+  "resultat": "réussi",
+  "constat": "Point, 2154, 27 attributs",
+  "detail": "",
+  "duree_s": 0.01
+ },
+ {
+  "numero": "T-ECL-03 [LOIRE]",
+  "libelle": "géométrie ponctuelle en Lambert 93, nom de couche et de colonnes du standard",
+  "resultat": "réussi",
+  "constat": "Point, 2154, 27 attributs",
+  "detail": "",
+  "duree_s": 0.01
+ },
+ {
+  "numero": "T-ECL-04 [SDE18]",
+  "libelle": "identifiants uniques, avec les seuls caractères permis par la section 4.4",
+  "resultat": "réussi",
+  "constat": "63093 identifiants distincts, 0 mal formés",
+  "detail": "",
+  "duree_s": 0.06
+ },
+ {
+  "numero": "T-ECL-04 [NANTES]",
+  "libelle": "identifiants uniques, avec les seuls caractères permis par la section 4.4",
+  "resultat": "réussi",
+  "constat": "97473 identifiants distincts, 0 mal formés",
+  "detail": "",
+  "duree_s": 0.11
+ },
+ {
+  "numero": "T-ECL-04 [LOIRE]",
+  "libelle": "identifiants uniques, avec les seuls caractères permis par la section 4.4",
+  "resultat": "réussi",
+  "constat": "18104 identifiants distincts, 0 mal formés",
+  "detail": "",
+  "duree_s": 0.02
+ },
+ {
+  "numero": "T-ECL-05 [valideDe-SDE18]",
+  "libelle": "les dates sont écrites sur 8 chiffres, AAAAMMJJ, et sont de vraies dates",
+  "resultat": "réussi",
+  "constat": "15056 dates, 0 fautives",
+  "detail": "",
+  "duree_s": 0.02
+ },
+ {
+  "numero": "T-ECL-05 [valideDe-NANTES]",
+  "libelle": "les dates sont écrites sur 8 chiffres, AAAAMMJJ, et sont de vraies dates",
+  "resultat": "réussi",
+  "constat": "0 dates, 0 fautives",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-ECL-05 [valideDe-LOIRE]",
+  "libelle": "les dates sont écrites sur 8 chiffres, AAAAMMJJ, et sont de vraies dates",
+  "resultat": "réussi",
+  "constat": "0 dates, 0 fautives",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-ECL-05 [valideJusque-SDE18]",
+  "libelle": "les dates sont écrites sur 8 chiffres, AAAAMMJJ, et sont de vraies dates",
+  "resultat": "réussi",
+  "constat": "0 dates, 0 fautives",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-ECL-05 [valideJusque-NANTES]",
+  "libelle": "les dates sont écrites sur 8 chiffres, AAAAMMJJ, et sont de vraies dates",
+  "resultat": "réussi",
+  "constat": "0 dates, 0 fautives",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-ECL-05 [valideJusque-LOIRE]",
+  "libelle": "les dates sont écrites sur 8 chiffres, AAAAMMJJ, et sont de vraies dates",
+  "resultat": "réussi",
+  "constat": "0 dates, 0 fautives",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-ECL-05 [datePremiereInstallation-SDE18]",
+  "libelle": "les dates sont écrites sur 8 chiffres, AAAAMMJJ, et sont de vraies dates",
+  "resultat": "réussi",
+  "constat": "0 dates, 0 fautives",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-ECL-05 [datePremiereInstallation-NANTES]",
+  "libelle": "les dates sont écrites sur 8 chiffres, AAAAMMJJ, et sont de vraies dates",
+  "resultat": "réussi",
+  "constat": "0 dates, 0 fautives",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-ECL-05 [datePremiereInstallation-LOIRE]",
+  "libelle": "les dates sont écrites sur 8 chiffres, AAAAMMJJ, et sont de vraies dates",
+  "resultat": "réussi",
+  "constat": "3722 dates, 0 fautives",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-ECL-06 [SDE18]",
+  "libelle": "toutes les valeurs énumérées appartiennent aux listes du standard",
+  "resultat": "réussi",
+  "constat": "5 listes vérifiées, 0 écart",
+  "detail": "",
+  "duree_s": 0.08
+ },
+ {
+  "numero": "T-ECL-06 [NANTES]",
+  "libelle": "toutes les valeurs énumérées appartiennent aux listes du standard",
+  "resultat": "réussi",
+  "constat": "5 listes vérifiées, 0 écart",
+  "detail": "",
+  "duree_s": 1.09
+ },
+ {
+  "numero": "T-ECL-06 [LOIRE]",
+  "libelle": "toutes les valeurs énumérées appartiennent aux listes du standard",
+  "resultat": "réussi",
+  "constat": "5 listes vérifiées, 0 écart",
+  "detail": "",
+  "duree_s": 0.03
+ },
+ {
+  "numero": "T-ECL-07 [SDE18]",
+  "libelle": "un attribut que la source ne donne pas reste vide ou inconnu : l'export ne comble rien",
+  "resultat": "réussi",
+  "constat": "attributs absents de la source : typeSource, usage, estAdaptatif, puissance, temperatureCouleur, extinctionNuit",
+  "detail": "",
+  "duree_s": 1.18
+ },
+ {
+  "numero": "T-ECL-07 [NANTES]",
+  "libelle": "un attribut que la source ne donne pas reste vide ou inconnu : l'export ne comble rien",
+  "resultat": "réussi",
+  "constat": "attributs absents de la source : valideDe, usage, extinctionNuit, estAdaptatif",
+  "detail": "",
+  "duree_s": 1.95
+ },
+ {
+  "numero": "T-ECL-07 [LOIRE]",
+  "libelle": "un attribut que la source ne donne pas reste vide ou inconnu : l'export ne comble rien",
+  "resultat": "réussi",
+  "constat": "attributs absents de la source : valideDe",
+  "detail": "",
+  "duree_s": 0.43
+ },
+ {
+  "numero": "T-ECL-08 [SDE18]",
+  "libelle": "le CSV donne les mêmes objets que le GeoPackage, avec des booléens en true et false",
+  "resultat": "réussi",
+  "constat": "63093 lignes, valeurs de eclairagePublic : ['false', 'true']",
+  "detail": "",
+  "duree_s": 0.28
+ },
+ {
+  "numero": "T-ECL-08 [NANTES]",
+  "libelle": "le CSV donne les mêmes objets que le GeoPackage, avec des booléens en true et false",
+  "resultat": "réussi",
+  "constat": "97473 lignes, valeurs de eclairagePublic : ['false', 'true']",
+  "detail": "",
+  "duree_s": 0.39
+ },
+ {
+  "numero": "T-ECL-08 [LOIRE]",
+  "libelle": "le CSV donne les mêmes objets que le GeoPackage, avec des booléens en true et false",
+  "resultat": "réussi",
+  "constat": "18104 lignes, valeurs de eclairagePublic : ['true']",
+  "detail": "",
+  "duree_s": 0.08
+ },
+ {
+  "numero": "T-ECL-09 [SDE18]",
+  "libelle": "la fiche de métadonnées déclare le standard, et se dit non conforme tant qu'il manque un attribut",
+  "resultat": "réussi",
+  "constat": "pass = false ; Attributs obligatoires absents de la source : estAdaptatif, extinctionNuit, puissance, temperatureCouleur, typeSource, usage.",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-ECL-09 [NANTES]",
+  "libelle": "la fiche de métadonnées déclare le standard, et se dit non conforme tant qu'il manque un attribut",
+  "resultat": "réussi",
+  "constat": "pass = false ; Attributs obligatoires absents de la source : estAdaptatif, extinctionNuit, usage, valideDe.",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-ECL-09 [LOIRE]",
+  "libelle": "la fiche de métadonnées déclare le standard, et se dit non conforme tant qu'il manque un attribut",
+  "resultat": "réussi",
+  "constat": "pass = false ; Attributs obligatoires absents de la source : valideDe.",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-ECL-10",
+  "libelle": "les listes du cahier recette-geo sont celles de la base, valeur pour valeur",
+  "resultat": "réussi",
+  "constat": "6 listes identiques, 11 attributs obligatoires",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-ECL-11 [SDE18-1]",
+  "libelle": "le contrôle indépendant par recette-geo refuse les lots et retrouve l'anomalie de territoire",
+  "resultat": "réussi",
+  "constat": "NON RECEVABLE : 1 anomalie bloquante (maximum 0) ; 4 763,0 anomalies majeures pour mille objets (maximum 20)",
+  "detail": "",
+  "duree_s": 0.01
+ },
+ {
+  "numero": "T-ECL-11 [NANTES-0]",
+  "libelle": "le contrôle indépendant par recette-geo refuse les lots et retrouve l'anomalie de territoire",
+  "resultat": "réussi",
+  "constat": "NON RECEVABLE : 3 021,6 anomalies majeures pour mille objets (maximum 20)",
+  "detail": "",
+  "duree_s": 0.01
+ },
+ {
+  "numero": "T-ECL-11 [LOIRE-18104]",
+  "libelle": "le contrôle indépendant par recette-geo refuse les lots et retrouve l'anomalie de territoire",
+  "resultat": "réussi",
+  "constat": "NON RECEVABLE : 18 104 anomalies bloquantes (maximum 0) ; 1 486,5 anomalies majeures pour mille objets (maximum 20)",
+  "detail": "",
+  "duree_s": 0.01
+ },
+ {
+  "numero": "T-FLX-01",
+  "libelle": "le nouveau lot devient le lot courant, l'ancien reste en base",
+  "resultat": "réussi",
+  "constat": "20261105 (97473 lignes), 20261201 (97470 lignes, courant)",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-FLX-02",
+  "libelle": "le différentiel entre les deux lots annonce exactement ce qui a changé",
+  "resultat": "réussi",
+  "constat": "{'ajout': 2, 'modification': 4, 'retrait': 5}, champ modifié : ['puissance_du_foyer_w']",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-FLX-03",
+  "libelle": "un point absent du nouveau lot est retiré et daté, jamais supprimé, et sort de l'export",
+  "resultat": "réussi",
+  "constat": "5 points gardés, retirés le ['2026-12-01'], 5 supports retirés",
+  "detail": "",
+  "duree_s": 0.32
+ },
+ {
+  "numero": "T-FLX-04",
+  "libelle": "une valeur changée dans la source est mise à jour",
+  "resultat": "réussi",
+  "constat": "puissances relues : [77.0]",
+  "detail": "",
+  "duree_s": 0.07
+ },
+ {
+  "numero": "T-FLX-05",
+  "libelle": "un nouveau foyer de la source est créé, avec son support, et part à l'export",
+  "resultat": "réussi",
+  "constat": "2 points à l'export, 2 supports créés",
+  "detail": "",
+  "duree_s": 0.17
+ },
+ {
+  "numero": "T-FLX-06",
+  "libelle": "un point, un support et une armoire corrigés après la reprise ne sont pas écrasés par la nouvelle publication",
+  "resultat": "réussi",
+  "constat": "point : 999.0 W alors que la source dit 77 W ; support : 12.5 m ; armoire déplacée de 10 m conservée",
+  "detail": "",
+  "duree_s": 0.02
+ },
+ {
+  "numero": "T-FLX-07",
+  "libelle": "relancer la reprise sans nouveau lot ne réécrit aucune ligne",
+  "resultat": "réussi",
+  "constat": "numéros de transaction identiques sur les points, les supports et les armoires : True",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-FLX-08",
+  "libelle": "le bilan de reprise reste à zéro après le nouveau lot, et le contrôle ne signale aucune perte",
+  "resultat": "réussi",
+  "constat": "97470 lignes = 97470 points, écart 0, 0 écart REP_01",
+  "detail": "",
+  "duree_s": 0.13
+ },
+ {
+  "numero": "T-FLX-09",
+  "libelle": "un fichier déjà chargé (même empreinte) n'est pas chargé une seconde fois",
+  "resultat": "réussi",
+  "constat": "[16:48:05] nantes : lot 5 déjà chargé (même empreinte)",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-01 [administrateur]",
+  "libelle": "le projet s'ouvre, toutes ses couches sont valides, aucun mot de passe n'y est écrit",
+  "resultat": "réussi",
+  "constat": "5 relations, thèmes : Contrôle de la reprise, Pannes et interventions, Patrimoine",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-01 [collectivite]",
+  "libelle": "le projet s'ouvre, toutes ses couches sont valides, aucun mot de passe n'y est écrit",
+  "resultat": "réussi",
+  "constat": "5 relations, thèmes : Contrôle de la reprise, Pannes et interventions, Patrimoine",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-01 [entreprise]",
+  "libelle": "le projet s'ouvre, toutes ses couches sont valides, aucun mot de passe n'y est écrit",
+  "resultat": "réussi",
+  "constat": "5 relations, thèmes : Pannes et interventions, Patrimoine",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-02 [collectivite-communes0]",
+  "libelle": "dans QGIS, le profil ne voit que son périmètre",
+  "resultat": "réussi",
+  "constat": "6539 points vus, communes ['44143']",
+  "detail": "",
+  "duree_s": 0.04
+ },
+ {
+  "numero": "T-APP-02 [entreprise-communes1]",
+  "libelle": "dans QGIS, le profil ne voit que son périmètre",
+  "resultat": "réussi",
+  "constat": "10446 points vus, communes ['44020', '44143']",
+  "detail": "",
+  "duree_s": 0.05
+ },
+ {
+  "numero": "T-APP-03 [administrateur-Points lumineux-droits0]",
+  "libelle": "QGIS propose exactement les écritures permises par la base",
+  "resultat": "réussi",
+  "constat": "Points lumineux : ['Ajouter', 'Modifier', 'Supprimer']",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-03 [collectivite-Points lumineux-droits1]",
+  "libelle": "QGIS propose exactement les écritures permises par la base",
+  "resultat": "réussi",
+  "constat": "Points lumineux : lecture seule",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-03 [collectivite-Signalements-droits2]",
+  "libelle": "QGIS propose exactement les écritures permises par la base",
+  "resultat": "réussi",
+  "constat": "Signalements : ['Ajouter']",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-03 [collectivite-Interventions-droits3]",
+  "libelle": "QGIS propose exactement les écritures permises par la base",
+  "resultat": "réussi",
+  "constat": "Interventions : lecture seule",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-03 [entreprise-Points lumineux-droits4]",
+  "libelle": "QGIS propose exactement les écritures permises par la base",
+  "resultat": "réussi",
+  "constat": "Points lumineux : lecture seule",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-03 [entreprise-Signalements-droits5]",
+  "libelle": "QGIS propose exactement les écritures permises par la base",
+  "resultat": "réussi",
+  "constat": "Signalements : lecture seule",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-03 [entreprise-Interventions-droits6]",
+  "libelle": "QGIS propose exactement les écritures permises par la base",
+  "resultat": "réussi",
+  "constat": "Interventions : ['Modifier']",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-04 [Points lumineux]",
+  "libelle": "les fiches sont organisées en onglets, avec les fiches liées",
+  "resultat": "réussi",
+  "constat": "Identification, Matériel, Photométrie, Allumage, Signalements, Interventions, Validité et origine",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-04 [Interventions]",
+  "libelle": "les fiches sont organisées en onglets, avec les fiches liées",
+  "resultat": "réussi",
+  "constat": "Intervention, Réalisation, Suivi",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-04 [Signalements]",
+  "libelle": "les fiches sont organisées en onglets, avec les fiches liées",
+  "resultat": "réussi",
+  "constat": "Signalement, Suivi",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-05 [administrateur]",
+  "libelle": "les recherches enregistrées s'exécutent toutes sur la base, sans erreur",
+  "resultat": "réussi",
+  "constat": "23 recherches, 0 en erreur",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-05 [collectivite]",
+  "libelle": "les recherches enregistrées s'exécutent toutes sur la base, sans erreur",
+  "resultat": "réussi",
+  "constat": "23 recherches, 0 en erreur",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-05 [entreprise]",
+  "libelle": "les recherches enregistrées s'exécutent toutes sur la base, sans erreur",
+  "resultat": "réussi",
+  "constat": "20 recherches, 0 en erreur",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-06",
+  "libelle": "les listes de valeurs n'encombrent pas la barre de recherche",
+  "resultat": "réussi",
+  "constat": "18 couches exclues de la recherche",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-07 [realisee_sans_date_ni_compte_rendu-attendu0]",
+  "libelle": "le formulaire d'intervention refuse les saisies incohérentes avant l'envoi à la base",
+  "resultat": "réussi",
+  "constat": "champs signalés : ['compte_rendu', 'date_realisee']",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-07 [date_dans_le_futur-attendu1]",
+  "libelle": "le formulaire d'intervention refuse les saisies incohérentes avant l'envoi à la base",
+  "resultat": "réussi",
+  "constat": "champs signalés : ['date_realisee']",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-07 [changement_sans_nouveau_materiel-attendu2]",
+  "libelle": "le formulaire d'intervention refuse les saisies incohérentes avant l'envoi à la base",
+  "resultat": "réussi",
+  "constat": "champs signalés : ['nouveau_type_source', 'nouvelle_puissance_w']",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-08",
+  "libelle": "à travers QGIS, la collectivité signale chez elle, jamais ailleurs, et la base signe la fiche",
+  "resultat": "réussi",
+  "constat": "chez elle : True, ailleurs : False, déclarant demo_commune, statut OUVERT",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-09",
+  "libelle": "à travers QGIS, l'entreprise ne peut ni changer la nature ni sauter d'étape",
+  "resultat": "réussi",
+  "constat": "changer la nature : False, sauter des états : False",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-IHM-01 [administrateur]",
+  "libelle": "chaque profil ouvre son projet dans une vraie fenêtre QGIS et son parcours aboutit",
+  "resultat": "réussi",
+  "constat": "theme : ok, fenetre : ok, fiche_support : ok, fiche_ecart : ok",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-IHM-01 [collectivite]",
+  "libelle": "chaque profil ouvre son projet dans une vraie fenêtre QGIS et son parcours aboutit",
+  "resultat": "réussi",
+  "constat": "theme : ok, fenetre : ok, fiche_point : ok, signaler : ok",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-IHM-01 [entreprise]",
+  "libelle": "chaque profil ouvre son projet dans une vraie fenêtre QGIS et son parcours aboutit",
+  "resultat": "réussi",
+  "constat": "theme : ok, fenetre : ok, fiche_intervention : ok",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-IHM-02",
+  "libelle": "l'action « Signaler une panne » ouvre la fiche, le bouton OK enregistre, la base complète la fiche",
+  "resultat": "réussi",
+  "constat": "fiche ouverte : True, OK actif : True, en base : ['demo_commune', 'OUVERT', '44143', 63357]",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-10",
+  "libelle": "le modèle graphique de QGIS et la reprise SQL donnent le même résultat, objet par objet",
+  "resultat": "réussi",
+  "constat": "97465 objets comparés, valeurs renseignées {'typeSource': 97378, 'support': 86671, 'puissance': 97316, 'temperatureCouleur': 96276}, différences {'typeSource': 0, 'support': 0, 'puissance': 0, 'temperatureCouleur': 0}, écart de position maximal 0.0 m",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-IHM-03 [fiche_point_materiel]",
+  "libelle": "les captures des supports de formation sont produites",
+  "resultat": "réussi",
+  "constat": "18 Ko",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-IHM-03 [fiche_support]",
+  "libelle": "les captures des supports de formation sont produites",
+  "resultat": "réussi",
+  "constat": "15 Ko",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-IHM-03 [fiche_signalement_saisie]",
+  "libelle": "les captures des supports de formation sont produites",
+  "resultat": "réussi",
+  "constat": "12 Ko",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-IHM-03 [fiche_intervention_realisation]",
+  "libelle": "les captures des supports de formation sont produites",
+  "resultat": "réussi",
+  "constat": "12 Ko",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-IHM-03 [fiche_ecart]",
+  "libelle": "les captures des supports de formation sont produites",
+  "resultat": "réussi",
+  "constat": "12 Ko",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-IHM-03 [qgis_administrateur_controle]",
+  "libelle": "les captures des supports de formation sont produites",
+  "resultat": "réussi",
+  "constat": "872 Ko",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-IHM-03 [qgis_collectivite_patrimoine]",
+  "libelle": "les captures des supports de formation sont produites",
+  "resultat": "réussi",
+  "constat": "647 Ko",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-IHM-03 [qgis_entreprise_interventions]",
+  "libelle": "les captures des supports de formation sont produites",
+  "resultat": "réussi",
+  "constat": "640 Ko",
+  "detail": "",
+  "duree_s": 0.0
+ }
+]

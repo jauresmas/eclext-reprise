@@ -1,0 +1,21 @@
+# Base et données téléchargées : se reconstruisent avec scripts/run_all.py
+data/pgdata/
+data/postgresql.log
+data/sources/
+
+# Copie vers un serveur existant : mots de passe tirés au hasard et projets propres à ce poste
+data/comptes_demo.txt
+projets/mon_postgres/
+
+# Exports et registres volumineux : se reconstruisent aussi avec scripts/run_all.py
+livrables/eclext/
+livrables/recette_geo/**/*.gpkg
+livrables/recette_geo/**/*_registre.xlsx
+
+__pycache__/
+*.pyc
+.pytest_cache/
+.impeccable/
+*.qgz~
+*.gpkg-wal
+*.gpkg-shm

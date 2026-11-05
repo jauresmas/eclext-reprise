@@ -1,0 +1,61 @@
+{
+  "outil": {
+    "nom": "recette-geo",
+    "version": "1.1.0"
+  },
+  "horodatage": "2026-11-05T16:42:08",
+  "duree_s": 25.1,
+  "cahier": {
+    "fichier": "cahier_eclext.yaml",
+    "chemin": "D:\\Utilisateur\\Bureau\\eclext-reprise\\recette_geo\\cahier_eclext.yaml",
+    "sha256": "496f8dc42d55402533a74ef070f49a264f1697024471fc9d8a681f661ee46a9d"
+  },
+  "livraison": {
+    "dossier": "ECLEXT_LOIRE_V01",
+    "chemin": "D:\\Utilisateur\\Bureau\\eclext-reprise\\livrables\\eclext\\ECLEXT_LOIRE_V01",
+    "zone": "LOIRE",
+    "version": "01",
+    "fichiers": {
+      "fr-200065886-eclairage-exterieur-publication-Loire-20261105.xml": "480f012ca9098c672ff4137578b59fb3256fd64336c044d02c616014117fc6a0",
+      "PointLumineux_LOIRE_V01.csv": "d43abbb946986b2c85d2cc9af97017632716f58a11aff85ce249efb449b86b95",
+      "PointLumineux_LOIRE_V01.gpkg": "c78f5927df1417706424783c975b14ef29e75741f4e81e2f19c63f2fc2517ced"
+    },
+    "couches": {
+      "pointlumineux": {
+        "fichier": "PointLumineux_LOIRE_V01.gpkg",
+        "couche": "PointLumineux",
+        "objets": 18104,
+        "geometrie": "Point",
+        "geometrie_conforme": true,
+        "crs": "EPSG:2154",
+        "encodage": "UTF-8"
+      }
+    }
+  },
+  "recevabilite": {
+    "statut": "NON RECEVABLE",
+    "motifs": [
+      "18 104 anomalies bloquantes (maximum 0)",
+      "1 486,5 anomalies majeures pour mille objets (maximum 20)"
+    ],
+    "objets": 18104,
+    "majeures_pour_mille": 1486.5223155103845,
+    "bloquante": 18104,
+    "majeure": 26912,
+    "mineure": 0,
+    "info": 0,
+    "a_verifier": 0,
+    "total": 45016
+  },
+  "anomalies_par_code": {
+    "ATT_OBLIGATOIRE": 26866,
+    "GEO_DOUBLON": 46,
+    "TOP_HORS_EMPRISE": 18104
+  },
+  "sorties": {
+    "geopackage": "D:\\Utilisateur\\Bureau\\eclext-reprise\\livrables\\recette_geo\\LOIRE\\recette_LOIRE_V01_anomalies.gpkg",
+    "rapport": "D:\\Utilisateur\\Bureau\\eclext-reprise\\livrables\\recette_geo\\LOIRE\\recette_LOIRE_V01_rapport.html",
+    "tableur": "D:\\Utilisateur\\Bureau\\eclext-reprise\\livrables\\recette_geo\\LOIRE\\recette_LOIRE_V01_registre.xlsx",
+    "json": "D:\\Utilisateur\\Bureau\\eclext-reprise\\livrables\\recette_geo\\LOIRE\\recette_LOIRE_V01_resultats.json"
+  }
+}

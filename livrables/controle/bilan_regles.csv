@@ -1,0 +1,42 @@
+﻿code;famille;libelle;gravite;gestionnaire;nb_ecarts;a_traiter
+COH_02;Cohérence logique;Un même identifiant porté par deux objets différents;majeure;NANTES;8;8
+COH_03;Cohérence logique;Code de support hors du format habituel;mineure;SDE18;75;75
+COH_04;Cohérence logique;Support alimenté par plusieurs départs;information;NANTES;34;34
+COH_05;Cohérence logique;Armoire alimentant plusieurs communes;information;NANTES;3;3
+COH_06;Cohérence logique;Foyers d'un même support en désaccord sur la voie ou la hauteur;mineure;NANTES;23;23
+COH_07;Cohérence logique;Ligne coupée à l'export et reconstituée;mineure;LOIRE;33;33
+COH_08;Cohérence logique;Ligne coupée dont le début a disparu du fichier;majeure;LOIRE;60;60
+COH_09;Cohérence logique;Fragment de ligne inexploitable;mineure;LOIRE;10;10
+EXH_01;Exhaustivité;Commune du territoire sans aucun objet;information;SDE18;5;5
+EXH_02;Exhaustivité;Attribut obligatoire jamais renseigné par cette source;majeure;LOIRE;1;1
+EXH_02;Exhaustivité;Attribut obligatoire jamais renseigné par cette source;majeure;NANTES;4;4
+EXH_02;Exhaustivité;Attribut obligatoire jamais renseigné par cette source;majeure;SDE18;6;6
+POS_01;Précision de position;Objet à plus de 50 m de sa commune déclarée;mineure;NANTES;204;204
+POS_01;Précision de position;Objet à plus de 50 m de sa commune déclarée;mineure;SDE18;93;93
+POS_02;Précision de position;Objet à plus de 500 m de sa commune déclarée;majeure;SDE18;3;3
+POS_03;Précision de position;Deux supports à moins de 50 cm l'un de l'autre;mineure;LOIRE;139;139
+POS_03;Précision de position;Deux supports à moins de 50 cm l'un de l'autre;mineure;NANTES;9;9
+POS_03;Précision de position;Deux supports à moins de 50 cm l'un de l'autre;mineure;SDE18;215;215
+POS_04;Précision de position;Support à plus de 2 km du centre de son armoire;mineure;NANTES;15;15
+POS_04;Précision de position;Support à plus de 2 km du centre de son armoire;mineure;SDE18;22;22
+POS_05;Précision de position;Publication située hors du territoire qu'elle annonce;bloquante;LOIRE;1;1
+RAP_01;Rapprochement;Présent chez Cœur de France, absent du syndicat;majeure;SDE18;11;11
+RAP_02;Rapprochement;Présent au syndicat comme intercommunal, absent de Cœur de France;majeure;SDE18;4;4
+RAP_03;Rapprochement;Même position, code différent : recodage probable;mineure;SDE18;14;14
+RAP_04;Rapprochement;Écart de position de plus de 5 m entre les deux publications;majeure;SDE18;21;21
+RAP_05;Rapprochement;Intercommunal chez Cœur de France, autre propriétaire au syndicat;mineure;SDE18;6;6
+REP_02;Reprise;La somme des puissances d'une armoire diffère de la source;bloquante;NANTES;1;1
+REP_04;Reprise;La reprise a déplacé un objet;bloquante;NANTES;97303;97303
+TEM_01;Qualité temporelle;Date par défaut 01/01/1970;mineure;SDE18;117;117
+TEM_02;Qualité temporelle;Date impossible;mineure;LOIRE;407;407
+VAL_01;Exactitude thématique;Hauteur à 0;mineure;NANTES;10572;10572
+VAL_01;Exactitude thématique;Hauteur à 0;mineure;SDE18;1982;1982
+VAL_02;Exactitude thématique;Hauteur supérieure à 30 m;majeure;NANTES;72;72
+VAL_02;Exactitude thématique;Hauteur supérieure à 30 m;majeure;SDE18;57;57
+VAL_03;Exactitude thématique;Puissance à 0 ou supérieure à 1 000 W;mineure;LOIRE;44;44
+VAL_03;Exactitude thématique;Puissance à 0 ou supérieure à 1 000 W;mineure;NANTES;189;189
+VAL_04;Exactitude thématique;Température de couleur inexploitable;mineure;LOIRE;2347;2347
+VAL_05;Exactitude thématique;Saillie vraisemblablement saisie en millimètres;mineure;NANTES;877;877
+VAL_06;Exactitude thématique;Température de couleur incohérente avec le type de source;mineure;LOIRE;51;51
+VAL_06;Exactitude thématique;Température de couleur incohérente avec le type de source;mineure;NANTES;26;26
+VAL_07;Exactitude thématique;Puissance du foyer éloignée de celle de la désignation;majeure;NANTES;6;6

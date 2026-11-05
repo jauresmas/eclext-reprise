@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>Plan de formation</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header>
+  <h1>Plan de formation à l'outil</h1>
+  <p>Trois sessions, une par profil, sur les vrais projets et le jeu d'essai.</p>
+</header>
+
+<div class="note alerte">
+  <p><strong>Ces sessions n'ont pas encore été déroulées devant des utilisateurs</strong> : les durées sont des estimations, à corriger après la première session (vérification T-MAN-05 du cahier de recette).</p>
+</div>
+
+<p>Chaque session suit le même principe : montrer un geste, le faire faire tout de suite sur le jeu d'essai, vérifier le résultat. Chaque participant repart avec son guide. Avant chaque session : relancer <code>scripts/07_jeu_essai.py</code> pour repartir d'un jeu d'essai propre, et créer un compte par participant si plusieurs saisissent en même temps.</p>
+
+<h2>Collectivité : 45 minutes</h2>
+<p><strong>À la fin, chacun sait</strong> retrouver un point de sa commune, signaler une panne et dire où en est la réparation. Support : guide pour la collectivité.</p>
+<table>
+  <tr><th class="n">Durée</th><th>Séquence</th><th>Exercice</th><th>Réussi si</th></tr>
+  <tr><td class="n">5 min</td><td>À quoi sert l'outil, ce qu'il ne fait pas</td><td></td><td></td></tr>
+  <tr><td class="n">10 min</td><td>Lire la carte et une fiche</td><td>Combien de points à vapeur de mercure sur la commune ?</td><td>Le nombre donné par le filtre enregistré</td></tr>
+  <tr><td class="n">10 min</td><td>Trouver un point</td><td>Retrouver le point <code>EPRZ170049</code> et dire sa puissance</td><td>51 W</td></tr>
+  <tr><td class="n">10 min</td><td>Signaler une panne</td><td>Signaler le point voisin de la mairie comme éteint</td><td>Un triangle rouge apparaît sur la carte</td></tr>
+  <tr><td class="n">5 min</td><td>Suivre un signalement</td><td>Trouver un signalement pris en compte et sa date d'intervention</td><td>La date lue dans la fiche liée</td></tr>
+  <tr><td class="n">5 min</td><td>Questions, et que faire en cas de danger immédiat</td><td></td><td></td></tr>
+</table>
+
+<h2>Entreprise de maintenance : 1 heure</h2>
+<p><strong>À la fin, chacun sait</strong> trouver son travail, faire avancer une intervention jusqu'au bout, déclarer un changement de matériel et comprendre un refus. Support : guide pour l'entreprise.</p>
+<table>
+  <tr><th class="n">Durée</th><th>Séquence</th><th>Exercice</th><th>Réussi si</th></tr>
+  <tr><td class="n">5 min</td><td>Ce qui vous revient, ce qui revient à l'administrateur</td><td></td><td></td></tr>
+  <tr><td class="n">10 min</td><td>Trouver son travail</td><td>Lister les interventions en retard</td><td>La liste du filtre enregistré</td></tr>
+  <tr><td class="n">15 min</td><td>Faire avancer une intervention</td><td>La planifier, la passer en cours, la clore</td><td>Le losange change de couleur ; le signalement se clôt</td></tr>
+  <tr><td class="n">15 min</td><td>Changement de matériel</td><td>Passer un point en diodes, 30 W</td><td>La fiche du point affiche le nouveau matériel et la date</td></tr>
+  <tr><td class="n">10 min</td><td>Comprendre un refus</td><td>Clore sans compte rendu, sauter un état</td><td>Le participant explique le message et corrige</td></tr>
+  <tr><td class="n">5 min</td><td>Questions</td><td></td><td></td></tr>
+</table>
+
+<h2>Administrateur : une demi-journée</h2>
+<p><strong>À la fin, chacun sait</strong> gérer les comptes, répartir les interventions, trancher les écarts et prendre une nouvelle publication. Support : aide-mémoire, rapport de reprise.</p>
+<table>
+  <tr><th class="n">Durée</th><th>Séquence</th><th>Exercice</th><th>Réussi si</th></tr>
+  <tr><td class="n">30 min</td><td>Le modèle : armoire, départ, support, point lumineux, et le passage au format d'échange</td><td>Suivre un point, de la ligne source au fichier exporté</td><td>La ligne source est retrouvée</td></tr>
+  <tr><td class="n">30 min</td><td>Comptes et périmètres</td><td>Créer un compte de commune, l'ouvrir dans QGIS</td><td>Seule cette commune est visible</td></tr>
+  <tr><td class="n">30 min</td><td>Du signalement à l'intervention</td><td>Créer une intervention depuis un signalement</td><td>L'entreprise la voit dans son projet</td></tr>
+  <tr><td class="n">45 min</td><td>Lire le bilan et trancher les écarts</td><td>Décider sur dix écarts POS_03 avec le fond de plan</td><td>Décisions signées dans la base</td></tr>
+  <tr><td class="n">45 min</td><td>Prendre une nouvelle publication sur une copie de la base</td><td>Dérouler la chaîne, lire le différentiel, l'export et recette-geo</td><td>Bilan à zéro, écart de chaque lot expliqué</td></tr>
+  <tr><td class="n">30 min</td><td>Sauvegarde, journal, ouverture à d'autres postes</td><td>Restaurer une sauvegarde dans une base d'essai</td><td>La base restaurée répond</td></tr>
+</table>
+
+<h2>Après la session</h2>
+<ul>
+  <li>Noter les questions qui reviennent et compléter le guide.</li>
+  <li>Dérouler avec un participant les vérifications T-MAN du cahier de recette et y reporter le résultat.</li>
+  <li>Effacer le jeu d'essai avant la mise en service : <code>DELETE FROM exploitation.intervention WHERE jeu_essai; DELETE FROM exploitation.signalement WHERE jeu_essai;</code></li>
+</ul>
+</body></html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>Aide-mémoire de l'administrateur</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header>
+  <h1>Aide-mémoire de l'administrateur</h1>
+  <p>Les gestes courants : comptes, interventions, écarts, nouvelle publication, sauvegarde.</p>
+</header>
+
+<h2>Démarrer</h2>
+<p>La base est une instance PostgreSQL propre au projet (port 5436). Après un redémarrage du poste, lancez <code>demarrer_base.bat</code>. Les requêtes ci-dessous s'exécutent dans DBeaver ou psql, avec un compte propriétaire pour les comptes et les sauvegardes. Le projet QGIS de ce profil est <code>eclairage_administrateur.qgz</code>.</p>
+
+<h2>Créer un compte</h2>
+<pre><code>-- Une collectivité : une ou plusieurs communes
+SELECT admin.creer_compte('mairie_reze', 'ep_collectivite', ARRAY['44143']::char(5)[]);
+
+-- Une entreprise : son périmètre, et le titulaire de ses interventions
+INSERT INTO admin.entreprise (nom) VALUES ('Nom de l''entreprise');
+SELECT admin.creer_compte('entreprise_x', 'ep_entreprise', ARRAY['44143', '44020']::char(5)[],
+                          (SELECT id FROM admin.entreprise WHERE nom = 'Nom de l''entreprise'));
+
+-- Élargir un périmètre : relancer creer_compte avec la nouvelle liste de communes
+-- Retirer l'accès
+ALTER ROLE mairie_reze NOLOGIN;</code></pre>
+<p>Profils : <code>ep_administrateur</code>, <code>ep_collectivite</code>, <code>ep_entreprise</code>, <code>ep_lecture</code>. Les droits et le périmètre sont portés par la base : le même compte donne le même résultat dans QGIS, DBeaver ou un autre outil.</p>
+<div class="note alerte">
+  <p><strong>Avant toute ouverture à d'autres postes.</strong> L'instance de démonstration accepte les connexions locales sans mot de passe. Il faut donner un mot de passe à chaque compte (<code>ALTER ROLE ... PASSWORD</code>), passer <code>pg_hba.conf</code> en <code>scram-sha-256</code> et n'écouter que le réseau voulu. Les projets QGIS ne contiennent aucun mot de passe.</p>
+</div>
+
+<h2>Traiter un signalement</h2>
+<ol>
+  <li>Vue « Pannes et interventions », filtre enregistré « En cours » sur la couche Signalements.</li>
+  <li>Dans la fiche du signalement, menu <strong>Actions</strong>, <strong>Créer l'intervention</strong>. Choisissez la nature et l'entreprise. Le signalement passe à « Pris en compte ».</li>
+  <li>Le signalement se clôt seul quand l'entreprise déclare l'intervention réalisée. Sinon, passez-le à « Rejeté » et complétez sa description pour expliquer pourquoi.</li>
+</ol>
+
+<h2>Traiter les écarts de contrôle</h2>
+<p>Vue « Contrôle de la reprise », couche <strong>Écarts de contrôle</strong>, onglet <strong>Décision</strong> : « Confirmée », « Faux positif » ou « Corrigée », avec un commentaire. Votre nom et la date s'ajoutent à l'enregistrement. Une décision survit aux passes de contrôle suivantes.</p>
+<figure class="petite">
+  <img src="../captures/fiche_ecart.png" alt="Fiche d'un écart de contrôle">
+  <figcaption>L'écart POS_05 : la publication annonce le département 42, ses points sont dans le 74.</figcaption>
+</figure>
+
+<h2>Prendre une nouvelle publication</h2>
+<pre><code>cd scripts
+python 01_telecharger.py          # collecte datée, avec empreinte
+python 02_charger_sources.py      # un fichier déjà chargé est ignoré ; différentiel dans flux.ecart_lot
+python 03_reprise.py              # met à jour sans réécrire ce qui n'a pas changé
+python 04_controles.py            # bilan et écarts
+python 05_export_eclext.py        # fichiers au format d'échange
+python 06_recette_geo.py          # contrôle indépendant des fichiers</code></pre>
+<p>Puis vérifiez dans cet ordre :</p>
+<pre><code>SELECT * FROM controle.bilan_reprise;                 -- la colonne ecart doit valoir 0
+SELECT source, nature, count(*) FROM flux.ecart_lot GROUP BY 1, 2;
+SELECT * FROM controle.bilan_regle WHERE nb_ecarts > 0;</code></pre>
+<p>Toute écriture hors reprise sur une armoire, un support ou un point (fiche QGIS, DBeaver, intervention) coche « Modifié après la reprise » : la publication suivante n'écrase pas cet objet, et le filtre enregistré du même nom les retrouve. Pour redonner la main à la source, remettez <code>maj_locale</code> à faux avec <code>SET LOCAL app.reprise = 'on'</code> dans la même transaction. Un objet absent du nouveau fichier n'est pas supprimé : il reçoit une date dans <code>retire_le</code> et sort de l'export.</p>
+
+<h2>Sauvegarder et relire le journal</h2>
+<pre><code>pg_dump -Fc -h localhost -p 5436 -U postgres eclext &gt; eclext_AAAAMMJJ.dump
+
+-- Qui a changé quoi sur un point
+SELECT quand, qui, action, avant, apres FROM audit.journal
+WHERE table_nom = 'metier.point_lumineux' AND objet_id = 63357 ORDER BY quand DESC;</code></pre>
+</body></html>

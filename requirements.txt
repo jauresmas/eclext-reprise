@@ -1,0 +1,12 @@
+# Python 3.10 ou plus. Les étapes 08 (et tests/qgis_projets.py) utilisent le Python de QGIS 3.34.
+geopandas>=1.0
+pyogrio>=0.9
+shapely>=2.0
+pandas>=2.0
+psycopg2-binary>=2.9
+requests>=2.31
+openpyxl>=3.1
+PyYAML>=6.0
+Jinja2>=3.1
+pytest>=8.0
+playwright>=1.40  # impression des documents en PDF, avec Edge

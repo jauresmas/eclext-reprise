@@ -1,0 +1,59 @@
+{
+  "outil": {
+    "nom": "recette-geo",
+    "version": "1.1.0"
+  },
+  "horodatage": "2026-11-05T16:39:49",
+  "duree_s": 96.0,
+  "cahier": {
+    "fichier": "cahier_eclext.yaml",
+    "chemin": "D:\\Utilisateur\\Bureau\\eclext-reprise\\recette_geo\\cahier_eclext.yaml",
+    "sha256": "496f8dc42d55402533a74ef070f49a264f1697024471fc9d8a681f661ee46a9d"
+  },
+  "livraison": {
+    "dossier": "ECLEXT_NANTES_V01",
+    "chemin": "D:\\Utilisateur\\Bureau\\eclext-reprise\\livrables\\eclext\\ECLEXT_NANTES_V01",
+    "zone": "NANTES",
+    "version": "01",
+    "fichiers": {
+      "fr-244400404-eclairage-exterieur-Nantes-Metropole-20261105.xml": "8c44d1bc2faa36be0b923a793baae1265bb9408cd75e4e32d7e420b0095a9407",
+      "PointLumineux_NANTES_V01.csv": "0bcb30e80acf1d83201c40d40b6ee67313cc3aed642e549b3967980d90c69e18",
+      "PointLumineux_NANTES_V01.gpkg": "aac636983b9166c398c717a27bd6b2336b2212be03fa4e1337edc4ce825c033d"
+    },
+    "couches": {
+      "pointlumineux": {
+        "fichier": "PointLumineux_NANTES_V01.gpkg",
+        "couche": "PointLumineux",
+        "objets": 97473,
+        "geometrie": "Point",
+        "geometrie_conforme": true,
+        "crs": "EPSG:2154",
+        "encodage": "UTF-8"
+      }
+    }
+  },
+  "recevabilite": {
+    "statut": "NON RECEVABLE",
+    "motifs": [
+      "3 021,6 anomalies majeures pour mille objets (maximum 20)"
+    ],
+    "objets": 97473,
+    "majeures_pour_mille": 3021.6059831953467,
+    "bloquante": 0,
+    "majeure": 294525,
+    "mineure": 0,
+    "info": 0,
+    "a_verifier": 0,
+    "total": 294525
+  },
+  "anomalies_par_code": {
+    "ATT_OBLIGATOIRE": 294524,
+    "GEO_DOUBLON": 1
+  },
+  "sorties": {
+    "geopackage": "D:\\Utilisateur\\Bureau\\eclext-reprise\\livrables\\recette_geo\\NANTES\\recette_NANTES_V01_anomalies.gpkg",
+    "rapport": "D:\\Utilisateur\\Bureau\\eclext-reprise\\livrables\\recette_geo\\NANTES\\recette_NANTES_V01_rapport.html",
+    "tableur": "D:\\Utilisateur\\Bureau\\eclext-reprise\\livrables\\recette_geo\\NANTES\\recette_NANTES_V01_registre.xlsx",
+    "json": "D:\\Utilisateur\\Bureau\\eclext-reprise\\livrables\\recette_geo\\NANTES\\recette_NANTES_V01_resultats.json"
+  }
+}

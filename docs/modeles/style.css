@@ -1,0 +1,43 @@
+/* Mise en page commune des guides et du rapport (A4, imprimés en PDF par scripts/11_documents.py) */
+@page { size: A4; margin: 18mm 17mm 18mm 17mm; }
+:root { --encre: #1d2733; --titre: #17375e; --trait: #c9d2dc; --fond: #f2f5f8; --accent: #b4561b; }
+* { box-sizing: border-box; }
+html { font-size: 10.5pt; }
+body { font-family: "Segoe UI", Calibri, Arial, sans-serif; color: var(--encre); line-height: 1.42; margin: 0; }
+
+header { border-bottom: 2px solid var(--titre); margin-bottom: 1.1rem; padding-bottom: .55rem; }
+header p { color: #51606f; margin: .2rem 0 0; font-size: .95rem; }
+h1 { color: var(--titre); font-size: 1.9rem; line-height: 1.15; margin: 0; font-weight: 600; }
+h2 { color: var(--titre); font-size: 1.22rem; margin: 1.25rem 0 .35rem; font-weight: 600; break-after: avoid; }
+h3 { color: var(--titre); font-size: 1.02rem; margin: .9rem 0 .25rem; font-weight: 600; break-after: avoid; }
+p { margin: .35rem 0 .55rem; }
+ol, ul { margin: .3rem 0 .6rem; padding-left: 1.35rem; }
+li { margin: .16rem 0; break-inside: avoid; }
+code, pre { font-family: Consolas, "Courier New", monospace; font-size: .9em; }
+code { background: var(--fond); padding: 0 .22em; border-radius: 2px; }
+pre { background: var(--fond); border: 1px solid var(--trait); padding: .5rem .65rem; margin: .4rem 0 .7rem; white-space: pre-wrap; break-inside: avoid; }
+pre code { background: none; padding: 0; }
+
+figure { margin: .55rem 0 .8rem; break-inside: avoid; }
+figure img { display: block; max-width: 100%; max-height: 92mm; margin: 0 auto; border: 1px solid var(--trait); }
+figure.petite img { max-height: 70mm; }
+figcaption { color: #51606f; font-size: .86rem; margin-top: .25rem; text-align: center; }
+
+table { border-collapse: collapse; width: 100%; margin: .45rem 0 .8rem; font-size: .92rem; break-inside: auto; }
+table.garde { break-inside: avoid; }
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+th { background: var(--titre); color: #fff; font-weight: 600; text-align: left; padding: .28rem .45rem; }
+td { border-bottom: 1px solid var(--trait); padding: .26rem .45rem; vertical-align: top; }
+td.n, th.n { text-align: right; white-space: nowrap; }
+tr.total td { font-weight: 600; border-top: 1.5px solid var(--titre); }
+td.nul { color: var(--accent); font-weight: 600; }
+
+.note { background: var(--fond); border-left: 3px solid var(--titre); padding: .45rem .7rem; margin: .6rem 0 .8rem; break-inside: avoid; }
+.note.alerte { border-left-color: var(--accent); }
+.note p { margin: .15rem 0; }
+.cles { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; margin: .7rem 0 1rem; }
+.cles div { border: 1px solid var(--trait); padding: .45rem .55rem; }
+.cles strong { display: block; color: var(--titre); font-size: 1.32rem; font-weight: 600; line-height: 1.15; }
+.cles span { font-size: .84rem; color: #51606f; }
+.source { font-size: .84rem; color: #51606f; }

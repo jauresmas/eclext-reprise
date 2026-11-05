@@ -1,0 +1,43 @@
+gestionnaire;attribut;origine;champ_source;commentaire
+SDE18;statut;hypothese;;La source ne dit pas si le point fonctionne : un inventaire courant est supposé en service
+SDE18;eclairagePublic;converti;client;
+SDE18;usage;absent;;
+SDE18;typeSource;absent;;La source publie les supports seulement
+SDE18;structure;deduit;typ_sup;Connu pour les bornes et les encastrés seulement
+SDE18;support;converti;typ_sup;
+SDE18;temperatureCouleur;absent;;La source publie les supports seulement
+SDE18;puissance;absent;;La source publie les supports seulement
+SDE18;valideDe;hypothese;date_pose;La date de pose du support remplace la date de mise en service du matériel
+SDE18;extinctionNuit;absent;;
+SDE18;estAdaptatif;absent;;
+SDE18;hauteurFeu;deduit;hauteur;Hauteur du support, admise par le standard quand la hauteur de feu est inconnue
+NANTES;statut;hypothese;;La source ne dit pas si le point fonctionne : un inventaire courant est supposé en service
+NANTES;eclairagePublic;converti;statut;Valeurs Privé>Public et NMH à faire confirmer
+NANTES;usage;absent;;
+NANTES;typeSource;converti;type_de_lampe;
+NANTES;structure;deduit;type_de_foyer;Lue dans le nom du foyer quand il contient un mot explicite
+NANTES;support;deduit;nature_du_support;Déduit du matériau du support
+NANTES;temperatureCouleur;deduit;designation_de_la_lampe;Lue dans la désignation de la lampe, 5e élément
+NANTES;puissance;direct;puissance_du_foyer_w;
+NANTES;valideDe;absent;;
+NANTES;extinctionNuit;absent;;
+NANTES;estAdaptatif;absent;;
+NANTES;modele;direct;type_de_foyer;
+NANTES;hauteurFeu;deduit;hauteur_du_support;Hauteur du support, admise par le standard quand la hauteur de feu est inconnue
+NANTES;fluxSource;deduit;designation_de_la_lampe;Lu dans la désignation quand elle le précise
+LOIRE;statut;converti;statut;
+LOIRE;eclairagePublic;converti;eclairagePublic;Publié en OUI/NON au lieu d'un booléen
+LOIRE;usage;direct;usage;
+LOIRE;typeSource;direct;typeSource;
+LOIRE;structure;direct;structure;
+LOIRE;support;direct;support;
+LOIRE;temperatureCouleur;direct;TemperatureCouleur;Nom de colonne avec une majuscule initiale ; la valeur 0 veut dire inconnu
+LOIRE;puissance;direct;puissance;
+LOIRE;valideDe;absent;;Colonne absente du fichier publié
+LOIRE;extinctionNuit;converti;extinctionNuit;Publié en OUI/NON au lieu d'un booléen
+LOIRE;estAdaptatif;converti;estAdaptatif;Publié en OUI/NON au lieu d'un booléen
+LOIRE;eclairageAdaptatif;direct;eclairageAdaptatif;
+LOIRE;modele;direct;modele;
+LOIRE;hauteurFeu;direct;hauteurFeu;
+LOIRE;fluxSource;direct;fluxSource;
+LOIRE;datePremiereInstallation;converti;datePremieInstallation;Nom de colonne mal orthographié, dates en JJ/MM/AAAA

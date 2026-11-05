@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>Guide pour la collectivité</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header>
+  <h1>Éclairage de votre commune : guide pour la collectivité</h1>
+  <p>Consulter le patrimoine, signaler une panne, suivre sa réparation. Temps de lecture : 5 minutes.</p>
+</header>
+
+<p>Ce projet QGIS vous montre l'éclairage de votre commune et vous permet de signaler une panne. Vous ne voyez que votre commune et vous ne pouvez pas modifier le patrimoine : c'est la base de données qui l'impose, selon votre compte. Vous ne risquez donc pas de casser quelque chose.</p>
+<p class="source">Les exemples viennent de la commune de Rezé. Le matériel montré est celui de la donnée ouverte de Nantes Métropole. Les signalements et les interventions sont un jeu d'essai, créé pour tester les fiches : aucune source publique ne donne l'historique des pannes.</p>
+
+<h2>1. Ouvrir le projet</h2>
+<p>Double-cliquez sur <code>eclairage_collectivite.qgz</code>. QGIS s'ouvre sur votre commune. Si un identifiant vous est demandé, utilisez celui que l'administrateur vous a remis. S'il vous manque une commune, demandez-lui de l'ajouter à votre compte : le projet lui-même n'a rien à régler.</p>
+
+<h2>2. Lire la carte</h2>
+<figure>
+  <img src="../captures/qgis_collectivite_patrimoine.png" alt="Liste des couches et carte de Rezé, avec les points lumineux colorés par type de source">
+  <figcaption>La vue « Patrimoine » à Rezé : la couleur d'un point donne son type de source, les carrés sont les armoires.</figcaption>
+</figure>
+<ul>
+  <li><strong>Les points</strong> sont les foyers lumineux. Vert : diodes électroluminescentes. Orange : sodium haute pression. Rouge : vapeur de mercure. Gris : non renseigné.</li>
+  <li><strong>Les carrés</strong> sont les armoires. Un carré pâle signale une position estimée à partir des supports qu'elle alimente : l'armoire n'est pas forcément à cet endroit.</li>
+  <li><strong>Trois vues sont prêtes</strong>, dans le menu en forme d'œil au-dessus de la liste des couches : « Patrimoine », « Pannes et interventions », « Contrôle de la reprise ».</li>
+</ul>
+
+<h2>3. Consulter une fiche</h2>
+<p>Prenez l'outil <strong>Identifier</strong> (le « i » dans la barre d'outils) et cliquez sur un point. Les onglets de la fiche séparent l'identification, le matériel, la photométrie, l'allumage, l'historique des signalements et des interventions, et l'origine de la donnée.</p>
+<figure class="petite">
+  <img src="../captures/fiche_point_materiel.png" alt="Fiche d'un point lumineux, onglet Matériel">
+  <figcaption>L'onglet « Matériel » d'un point.</figcaption>
+</figure>
+<div class="note">
+  <p><strong>Comment lire une case vide.</strong> <code>NULL</code> veut dire que la source ne donne pas cette information. « Valeur inconnue » veut dire la même chose, pour une liste du standard où une réponse est obligatoire. Dans les deux cas, personne n'a inventé de valeur à la place.</p>
+</div>
+
+<h2>4. Trouver un point</h2>
+<ul>
+  <li><strong>Par son code.</strong> Dans la barre de recherche en bas à gauche de QGIS (<code>Ctrl+K</code>), tapez <code>af</code>, une espace, puis le code : <code>af EPRZ170049</code>. Cliquez sur le résultat : la carte s'y déplace.</li>
+  <li><strong>Par une recherche prête.</strong> Ouvrez la table de la couche (<code>F6</code>), puis le menu de filtre en bas à gauche, rubrique des filtres enregistrés. Sur les points : « Sources à vapeur de mercure », « Type de source non renseigné ». Sur les signalements : « En cours », « Ouverts depuis plus de 48 h », « Danger pour le public ».</li>
+</ul>
+
+<h2>5. Signaler une panne</h2>
+<ol>
+  <li>Identifiez le point avec l'outil « i » et ouvrez sa fiche.</li>
+  <li>Dans le menu <strong>Actions</strong>, en haut de la fiche, choisissez <strong>Signaler une panne</strong>.</li>
+  <li>Choisissez la nature et décrivez ce que vous avez constaté. Plus la description est précise, plus l'intervention est rapide.</li>
+  <li>Cliquez sur <strong>OK</strong>. Le signalement est enregistré aussitôt.</li>
+</ol>
+<figure class="petite">
+  <img src="../captures/fiche_signalement_saisie.png" alt="Fiche de signalement remplie">
+  <figcaption>La fiche de signalement. Le point et la commune sont déjà remplis ; la date et votre nom s'ajoutent à l'enregistrement.</figcaption>
+</figure>
+<div class="note alerte">
+  <p><strong>Un danger immédiat ne passe pas par cette fiche.</strong> Câble à nu, mât sur le point de tomber : appelez d'abord le numéro d'astreinte, puis signalez avec la nature « Danger pour le public » pour garder la trace.</p>
+</div>
+
+<h2>6. Suivre un signalement</h2>
+<p>Choisissez la vue « Pannes et interventions ». Le triangle donne l'état du signalement. Le petit losange à l'intérieur apparaît dès qu'une intervention est prévue, et sa couleur donne l'avancement.</p>
+<table>
+  <tr><th>Triangle</th><th>Signalement</th><th>Losange</th><th>Intervention</th></tr>
+  <tr><td>Rouge</td><td>Ouvert : reçu, pas encore traité</td><td>Rouge</td><td>À planifier</td></tr>
+  <tr><td>Orange</td><td>Pris en compte : une intervention existe</td><td>Orange</td><td>Planifiée, avec une date</td></tr>
+  <tr><td>Vert</td><td>Clos : l'intervention est réalisée</td><td>Bleu</td><td>En cours</td></tr>
+  <tr><td>Gris</td><td>Rejeté : sans suite, le motif est ajouté à la description</td><td>Vert</td><td>Réalisée, avec un compte rendu</td></tr>
+</table>
+
+<h2>7. Si quelque chose ne va pas</h2>
+<ul>
+  <li><strong>Une information est fausse sur une fiche</strong> (puissance, type de source, position) : faites un signalement de nature « Autre » et décrivez l'erreur. L'administrateur corrige, et la correction est conservée quand la source est republiée.</li>
+  <li><strong>« Signalement refusé » apparaît en haut de la carte</strong> : le motif est écrit à côté. Transmettez-le à l'administrateur si vous ne pouvez pas le corriger.</li>
+  <li><strong>Le fond de plan reste blanc</strong> : il vient du réseau de l'IGN. Les données restent consultables sans lui.</li>
+</ul>
+</body></html>

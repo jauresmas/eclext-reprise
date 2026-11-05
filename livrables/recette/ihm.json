@@ -1,0 +1,41 @@
+{
+ "administrateur": {
+  "projet_ouvert": true,
+  "couches_invalides": [],
+  "etapes": {
+   "theme": "ok",
+   "fenetre": "ok",
+   "fiche_support": "ok",
+   "fiche_ecart": "ok"
+  }
+ },
+ "collectivite": {
+  "projet_ouvert": true,
+  "couches_invalides": [],
+  "etapes": {
+   "theme": "ok",
+   "fenetre": "ok",
+   "fiche_point": "ok",
+   "signaler": "ok"
+  },
+  "fiche_ouverte": true,
+  "ok_actif": true,
+  "signalement_en_base": [
+   "demo_commune",
+   "OUVERT",
+   "44143",
+   63357
+  ],
+  "point_attendu": 63357
+ },
+ "entreprise": {
+  "projet_ouvert": true,
+  "couches_invalides": [],
+  "etapes": {
+   "theme": "ok",
+   "fenetre": "ok",
+   "fiche_intervention": "ok"
+  }
+ },
+ "termine": true
+}

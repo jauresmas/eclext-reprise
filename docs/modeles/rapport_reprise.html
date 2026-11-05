@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>Rapport de reprise</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header>
+  <h1>Reprise d'inventaires d'éclairage public au géostandard EclExt</h1>
+  <p>Rapport de reprise, chiffres du {{ jour }}. Étude indépendante à partir de données ouvertes, sans lien avec les producteurs.</p>
+</header>
+
+<p>Trois inventaires publiés par des gestionnaires différents ont été amenés dans une même base PostgreSQL/PostGIS, puis exportés au format du géostandard national EclExt v1.1 (CNIG, 2022). Une quatrième publication sert de témoin. Tout est contrôlé, et le rapport dit ce que les données ne permettent pas d'affirmer.</p>
+
+<div class="cles">
+  <div><strong>{{ total.points|fr }}</strong><span>points lumineux repris, avec {{ total.supports|fr }} supports et {{ armoires|fr }} armoires</span></div>
+  <div><strong>{{ total.ecart|fr }}</strong><span>ligne source sans explication : chacune est reprise, fusionnée ou écartée avec son motif</span></div>
+  <div><strong>{{ nb_ecarts|fr }}</strong><span>écarts relevés par {{ nb_regles }} règles, dont {{ nb_bloquants }} bloquant</span></div>
+  <div><strong>{{ conformes|fr }}</strong><span>point entièrement conforme : aucune source ne donne tous les attributs obligatoires</span></div>
+</div>
+
+<h2>1. Ce qui a été repris</h2>
+<table class="garde">
+  <thead><tr><th>Source</th><th class="n">Lignes</th><th class="n">Points</th><th class="n">Supports</th><th class="n">Fusionnées</th><th class="n">Écartées</th><th class="n">Écart</th></tr></thead>
+  {% for b in bilan %}<tr><td>{{ noms[b.gestionnaire] }}</td><td class="n">{{ b.lignes_source|fr }}</td><td class="n">{{ b.points_repris|fr }}</td><td class="n">{{ b.supports_repris|fr }}</td><td class="n">{{ b.lignes_fusionnees|fr }}</td><td class="n">{{ b.lignes_ecartees|fr }}</td><td class="n">{{ b.ecart|fr }}</td></tr>
+  {% endfor %}<tr class="total"><td>Total</td><td class="n">{{ total.lignes|fr }}</td><td class="n">{{ total.points|fr }}</td><td class="n">{{ total.supports|fr }}</td><td class="n">{{ total.fusionnees|fr }}</td><td class="n">{{ total.ecartees|fr }}</td><td class="n">{{ total.ecart|fr }}</td></tr>
+</table>
+<p>Les {{ total.fusionnees|fr }} lignes fusionnées sont des lignes coupées en deux à l'export, reconstituées ; les {{ total.ecartees|fr }} lignes écartées sont des fragments inexploitables, conservés dans <code>controle.rejet</code>. La colonne « Écart » est calculée en base : elle doit rester à zéro, y compris après une nouvelle publication.</p>
+
+<h2>2. Ce que la reprise a révélé</h2>
+
+<h3>Une publication titrée « Loire » décrit la Haute-Savoie</h3>
+<p>La publication « Éclairage public sur le département de la Loire », déposée par Loire Forez Agglomération, annonce le département 42. Ses {{ loire.points|fr }} points sont rattachés à {{ loire.communes|fr }} communes de Haute-Savoie : {{ loire.dans_74|fr }} sont à l'intérieur de leurs contours, {{ loire.dans_42|fr }} dans ceux de la Loire. La règle POS_05 bloque ce lot, et le contrôle indépendant le refuse aussi. Les données ne disent pas d'où vient ce décalage (mauvais fichier déposé, titre erroné, autre chose). Les points sont gardés dans les communes où ils se trouvent, et l'anomalie est à signaler au producteur.</p>
+
+<h3>Aucune source n'atteint la conformité au standard</h3>
+<p>Part des points qui portent une valeur exploitable, par attribut obligatoire. Les codes « inconnu » et « autre » du standard ne comptent pas comme une valeur.</p>
+<table class="garde">
+  <thead><tr><th>Attribut obligatoire</th>{% for g in zones %}<th class="n">{{ noms[g] }}</th>{% endfor %}</tr></thead>
+  {% for a in attributs %}<tr><td><code>{{ a.nom }}</code></td>{% for g in zones %}<td class="n{% if a[g] == 0 %} nul{% endif %}">{{ a[g]|fr1 }} %{% if a[g ~ "_hypothese"] %} *{% endif %}</td>{% endfor %}</tr>
+  {% endfor %}
+</table>
+<p class="source">* Hypothèse, et non information de la source. Le statut : ni le Cher ni Nantes ne disent si le point fonctionne, et un inventaire courant est supposé en service. La date de validité du Cher : c'est la date de pose du support, faute de date de mise en service du matériel.</p>
+<p>Le syndicat du Cher publie ses supports, pas ses luminaires : {{ absents_sde18 }} attributs obligatoires sur {{ attributs|length }} n'y figurent jamais. La reprise crée un point par support (hypothèse marquée sur chaque point). Nantes Métropole, qui publie la hiérarchie complète, compte {{ foyers_par_support }} foyer par support : c'est l'ordre de grandeur de l'erreur que fait cette hypothèse. Hormis ces hypothèses, écrites attribut par attribut dans <code>ref.origine_attribut</code>, aucune valeur n'a été ajoutée pour atteindre la conformité, et la fiche de métadonnées de chaque lot se déclare non conforme.</p>
+
+<h3>Deux publications du même patrimoine ne disent pas tout à fait la même chose</h3>
+<p>Dans le Cher, la communauté de communes Cœur de France et le syndicat publient les mêmes objets avec la même codification. Le rapprochement sert donc de contrôle réel de la reprise :</p>
+<ul>
+  <li><strong>{{ rap.apparie|fr }} objets appariés.</strong> Sur les {{ rap.mesures|fr }} dont la position est connue des deux côtés, la distance médiane est de {{ rap.mediane|fr }} m et le maximum de {{ rap.maxi|fr1 }} m ; {{ rap.plus_de_5m|fr }} dépassent 5 m.</li>
+  <li><strong>{{ rap.recode|fr }} recodages probables</strong> : même position à moins d'un mètre, code différent (AY-0699 devenu SOL-0699). Sans cette recherche par la position, ils seraient comptés comme absents.</li>
+  <li><strong>{{ rap.absent_syndicat|fr }} objets absents du syndicat</strong> et {{ rap.absent_ccf|fr }} absents de Cœur de France, à vérifier sur place.</li>
+  <li><strong>{{ rap.proprietaire|fr }} désaccords sur le propriétaire</strong>, et {{ rap.sans_position|fr }} lignes de Cœur de France sans position.</li>
+</ul>
+
+<h3>Les écarts relevés dans les sources</h3>
+<table>
+  <thead><tr><th>Règle</th><th>Constat</th><th>Gravité</th>{% for g in zones %}<th class="n">{{ noms[g] }}</th>{% endfor %}</tr></thead>
+  {% for r in regles %}<tr><td><code>{{ r.code }}</code></td><td>{{ r.libelle }}</td><td>{{ r.gravite }}</td>{% for g in zones %}<td class="n">{{ r[g]|fr if r[g] else "" }}</td>{% endfor %}</tr>
+  {% endfor %}
+</table>
+<p>Un écart n'est jamais corrigé en silence : la valeur d'origine est gardée dans <code>controle.ecart</code>, avec la valeur retenue. Le gestionnaire le confirme ou l'écarte depuis la fiche QGIS, et sa décision survit aux passes suivantes.</p>
+
+<h2>3. La méthode</h2>
+<ul>
+  <li><strong>Sources intactes.</strong> Chaque fichier est chargé tel quel, en texte, avec son empreinte et le numéro de chaque ligne. Tout objet de la base renvoie à sa ligne d'origine.</li>
+  <li><strong>Modèle métier.</strong> Armoire, départ, support, point lumineux, avec clés étrangères, contraintes et listes de valeurs du standard. L'export EclExt est une vue de ce modèle.</li>
+  <li><strong>Correspondances explicites.</strong> {{ corr.total }} valeurs converties dans une table relue par un humain : {{ corr.certain }} certaines, {{ corr.deduit }} déduites, {{ corr.arbitrage }} arbitrées. Une valeur que la table ne connaît pas ressort en écart, au lieu d'être perdue.</li>
+  <li><strong>Trois niveaux de contrôle.</strong> Le bilan ligne à ligne ; {{ nb_regles_definies }} règles SQL par famille de qualité, dont {{ nb_regles }} ont relevé quelque chose ; recette-geo, qui relit les fichiers livrés sans passer par la base.</li>
+  <li><strong>Deux voies de reprise.</strong> Le cœur de la reprise de Nantes (position, type de source, support, puissance, température) est refait avec le modeleur graphique de QGIS : sur {{ modele.objets_compares|fr }} objets comparés, {{ modele.total_differences|fr }} différence.</li>
+  <li><strong>Reprise relançable.</strong> Une nouvelle publication passe par les mêmes scripts. Un objet absent est retiré et daté, jamais supprimé. Une correction faite sur place n'est pas écrasée. Relancer sans nouveau fichier ne réécrit aucune ligne.</li>
+</ul>
+
+<h2>4. Le contrôle indépendant des fichiers livrés</h2>
+<table class="garde">
+  <thead><tr><th>Lot</th><th class="n">Objets</th><th class="n">Anomalies bloquantes</th><th class="n">Anomalies majeures</th><th class="n">Majeures pour mille objets</th><th>Décision</th></tr></thead>
+  {% for z in recette %}<tr><td>{{ noms[z.zone] }}</td><td class="n">{{ z.objets|fr }}</td><td class="n">{{ z.bloquante|fr }}</td><td class="n">{{ z.majeure|fr }}</td><td class="n">{{ z.pour_mille|fr1 }}</td><td>{{ z.statut|lower }}</td></tr>
+  {% endfor %}
+</table>
+<p>Les trois lots sont refusés, et c'est la bonne réponse : il leur manque des attributs obligatoires que personne ne peut inventer. Les anomalies bloquantes sont des points hors du territoire annoncé : un seul dans le Cher, tous pour la publication Loire. La reprise tient ses comptes ; ce sont les sources qu'il faudrait compléter.</p>
+
+<h2>5. Les arbitrages à faire valider par un gestionnaire</h2>
+<table class="garde">
+  <thead><tr><th>Source</th><th>Champ</th><th>Valeur</th><th>Retenu</th><th>Raison</th></tr></thead>
+  {% for a in arbitrages %}<tr><td>{{ noms_sources[a.source] }}</td><td><code>{{ a.champ }}</code></td><td><code>{{ a.valeur }}</code></td><td>{{ a.cible or "vide" }}</td><td>{{ a.commentaire }}</td></tr>
+  {% endfor %}
+</table>
+
+<h2>6. Les limites</h2>
+<ul>
+  <li><strong>Aucun contrôle de terrain.</strong> Tout est comparé entre sources et au référentiel des communes. Un inventaire peut être cohérent et faux.</li>
+  <li><strong>Pas d'historique de maintenance.</strong> Aucune source ne le publie. Les signalements et interventions servent à tester les fiches : ce sont un jeu d'essai, marqué en base, à effacer avant toute mise en service.</li>
+  <li><strong>Positions d'armoires estimées.</strong> Aucune source ne les publie : {{ armoires_estimees|fr }} armoires sont placées au centre des supports qu'elles alimentent, et marquées comme telles.</li>
+  <li><strong>Base de démonstration.</strong> Elle est locale, sans mot de passe. Son ouverture à d'autres postes suppose les réglages de l'aide-mémoire.</li>
+  <li><strong>Usage réel non éprouvé.</strong> Les parcours sont testés, mais pas encore par des utilisateurs : les vérifications T-MAN du cahier de recette restent à dérouler.</li>
+</ul>
+
+<h2>7. Les suites à donner</h2>
+<ol>
+  <li>Signaler au producteur le décalage de la publication Loire, et lui demander quel territoire elle décrit.</li>
+  <li>Faire valider les {{ corr.arbitrage }} arbitrages et les {{ corr.deduit }} correspondances déduites par un gestionnaire.</li>
+  <li>Demander aux producteurs les attributs obligatoires qui manquent, en commençant par la date de validité, absente partout ou presque.</li>
+  <li>Vérifier sur place les objets présents dans une seule des deux publications du Cher, et les {{ rap.plus_de_5m|fr }} positions écartées de plus de 5 m.</li>
+  <li>Dérouler les vérifications T-MAN avec de vrais utilisateurs, puis corriger les guides et le plan de formation.</li>
+</ol>
+
+<h2>8. Les sources</h2>
+<table class="garde">
+  <thead><tr><th>Publication</th><th>Producteur</th><th>Collecte</th><th>Licence</th></tr></thead>
+  {% for s in sources %}<tr><td>{{ s.titre }}</td><td>{{ s.producteur }}</td><td>{{ s.date }}</td><td>Licence Ouverte 2.0</td></tr>
+  {% endfor %}
+  <tr><td>Contours communaux</td><td>API Découpage administratif (geo.api.gouv.fr)</td><td>{{ sources[0].date }}</td><td>Licence Ouverte 2.0</td></tr>
+</table>
+</body></html>
