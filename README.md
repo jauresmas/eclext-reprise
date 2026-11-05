@@ -1,6 +1,6 @@
 # Reprise d'inventaires d'éclairage public au géostandard EclExt
 
-Trois inventaires publiés par des gestionnaires différents, amenés dans une même base PostgreSQL/PostGIS, exportés au format national [EclExt v1.1](https://cnig.gouv.fr/IMG/pdf/cnig_eclext_v1_1.pdf) (CNIG, 2022), contrôlés de bout en bout, et exploitables dans QGIS par trois profils d'utilisateurs.
+Trois inventaires publiés par des gestionnaires différents, amenés dans une même base PostgreSQL/PostGIS, exportés au format national [EclExt v1.1](https://cnig.gouv.fr/IMG/pdf/cnig_eclext_v1_1.pdf) (CNIG, 2022), contrôlés de bout en bout, et exploitables dans QGIS par trois profils d'utilisateurs, avec une déclaration des pannes sur le terrain dans QField.
 
 Ce projet prolonge [recette-geo](https://github.com/jauresmas/recette-geo), mon outil de contrôle des livraisons géographiques. recette-geo dit si un fichier reçu est recevable ; ici, je me mets de l'autre côté : c'est moi qui reprends les données et qui dois tenir mes comptes.
 
@@ -34,6 +34,7 @@ Le détail est dans le [rapport de reprise](docs/rapport_reprise.pdf).
 | Un contrôle indépendant | Cahier EclExt pour recette-geo, qui relit les fichiers livrés sans passer par la base | `recette_geo/cahier_eclext.yaml`, `livrables/recette_geo/` |
 | Une seconde voie de reprise | Le cœur de la reprise de Nantes refait au modeleur graphique de QGIS, comparé objet par objet à la voie SQL | `modeles/reprise_nantes_eclext.model3`, `scripts/08b_modele_qgis.py` |
 | Des outils de consultation | Trois projets QGIS : fiches en onglets, fiches liées, recherches enregistrées, thèmes de carte | `projets/` |
+| Une saisie de terrain | Projet QField hors ligne de la collectivité ; ses pannes arrivent dans la base par son compte, sans doublon, avec un bilan | `scripts/08c_paquet_qfield.py`, `scripts/13_importer_terrain.py`, `projets/qfield/` |
 | Des comptes par profil | Administrateur, collectivité, entreprise, lecture : droits et périmètre garantis par la base (RLS), pas par le projet QGIS | `sql/41_roles.sql` |
 | Un flux de mise à jour | Comparaison de deux publications ; un objet absent est retiré et daté ; une correction locale n'est pas écrasée | `flux.comparer_lots` dans `sql/01_structure.sql`, `tests/test_7_flux.py` |
 | Un cahier de recette | Tests automatiques et vérifications manuelles, avec leurs résultats | `livrables/recette/cahier_recette.xlsx` |
@@ -46,6 +47,26 @@ Le détail est dans le [rapport de reprise](docs/rapport_reprise.pdf).
 La collectivité consulte sa commune et signale une panne. L'entreprise met à jour ses interventions, sans pouvoir changer la nature d'une intervention ni sauter une étape. L'administrateur voit tout, traite les écarts et affecte les signalements. Quand un point change de matériel, la base inscrit le nouveau matériel à la clôture de l'intervention et garde l'ancien dans son journal.
 
 ![Fiche d'intervention](docs/captures/fiche_intervention_realisation.png)
+
+## Déclarer une panne sur le terrain
+
+Le projet QGIS reste au bureau. Sur son téléphone, la collectivité ouvre dans QField un paquet hors ligne : les points de sa commune, et une seule couche modifiable, « Signaler une panne ».
+
+```text
+Base  --compte de la collectivité-->  paquet QField (.zip, sans connexion ni mot de passe)
+                                          |  sur place : point le plus proche proposé, nature, description, photo
+                                          v
+Base  <--même compte, mêmes contrôles--  dossier renvoyé par le téléphone
+  |
+  v
+signalement ouvert, photo dans la fiche, suite habituelle : intervention, clôture
+```
+
+- **Un seul périmètre.** Le paquet est extrait avec le compte de la collectivité, et l'import repasse par ce compte. Un point hors périmètre est refusé par la base, comme dans QGIS.
+- **Aucune panne perdue.** Reçues = importées + déjà importées + refusées. Chaque ligne a sa réponse dans un compte rendu, avec le motif d'un refus. Importer deux fois le même envoi ne crée pas de doublon, grâce à un identifiant créé sur le téléphone.
+- **Pas de réseau exigé.** La saisie marche sans réseau, et la base n'a pas besoin d'être ouverte à l'extérieur. La contrepartie est un envoi manuel au retour, pas une synchronisation en direct.
+
+Le paquet de démonstration (Rezé) est [`projets/qfield/eclairage_terrain_demo_commune.zip`](projets/qfield/eclairage_terrain_demo_commune.zip). Au retour, glisser le dossier ou le `.zip` renvoyé sur `importer_pannes_terrain.bat`. Les gestes sont dans le [guide de la collectivité](docs/guide_collectivite.pdf).
 
 ## La méthode
 
@@ -76,6 +97,7 @@ Publications ouvertes (avec empreinte)
 - **Cinq arbitrages à faire valider** par un gestionnaire (liste dans le rapport, section 5).
 - **Base de démonstration.** Locale, sans mot de passe. L'aide-mémoire dit ce qu'il faut régler avant de l'ouvrir à d'autres postes.
 - **Le déplacement des données de la Loire n'est pas expliqué.** Je constate, je n'explique pas.
+- **QField pas encore essayé sur un vrai téléphone.** Le circuit est testé avec le moteur de QGIS, sur lequel QField s'appuie : ouverture du paquet, fiche, enregistrement, import. L'essai réel reste à faire (T-MAN-06). Sans réseau, le fond de plan IGN ne s'affiche pas : il reste les points et le contour de la commune.
 - **Vérifications manuelles à dérouler.** Les parcours sont testés par scripts et dans une vraie fenêtre QGIS, mais les vérifications T-MAN du cahier de recette, avec de vrais utilisateurs, restent à faire.
 
 ## Relancer le projet
@@ -94,7 +116,7 @@ cd scripts
 python run_all.py --telecharger
 ```
 
-La chaîne crée une base dédiée (port 5436), télécharge les publications du jour, reprend, contrôle, exporte, construit les projets QGIS et le modèle, déroule les tests, écrit le cahier de recette et imprime les documents. Les publications changent : les chiffres ci-dessus sont ceux de la collecte du 5 novembre 2026, dont les empreintes sont dans `flux.lot`. La base, les fichiers source, les exports EclExt et les registres d'anomalies ne sont pas versionnés, car ils sont volumineux : la chaîne les recrée.
+La chaîne crée une base dédiée (port 5436), télécharge les publications du jour, reprend, contrôle, exporte, construit les projets QGIS, le modèle et le paquet QField, déroule les tests, écrit le cahier de recette et imprime les documents. Les publications changent : les chiffres ci-dessus sont ceux de la collecte du 5 novembre 2026, dont les empreintes sont dans `flux.lot`. La base, les fichiers source, les exports EclExt et les registres d'anomalies ne sont pas versionnés, car ils sont volumineux : la chaîne les recrée.
 
 Le parcours dans une vraie fenêtre QGIS se lance à part, dans un QGIS ouvert sur un projet vide, depuis la console Python :
 
@@ -107,7 +129,7 @@ exec(open(chemin, encoding="utf-8").read(), {"__file__": chemin})
 
 La chaîne et les tests travaillent sur l'instance dédiée du projet. Pour avoir la base dans un serveur déjà installé (même version de PostGIS), double-cliquer sur `copier_vers_mon_postgres.bat`. Le mot de passe du serveur est demandé à l'écran, sans être affiché ni enregistré.
 
-Le script crée la base `eclext`, les rôles `ep_*` et les comptes `demo_*`, compare les tables une à une avec l'origine et vérifie qu'un compte reste dans son périmètre. Il n'écrase pas une base `eclext` existante, sauf avec `--remplacer`. Les mots de passe tirés au hasard pour les comptes de démonstration sont dans `data/comptes_demo.txt`, et les projets QGIS qui visent ce serveur dans `projets/mon_postgres/`. Ces deux éléments ne sont pas versionnés.
+Le script crée la base `eclext`, les rôles `ep_*` et les comptes `demo_*`, compare les tables une à une avec l'origine et vérifie qu'un compte reste dans son périmètre. Il n'écrase pas une base `eclext` existante, sauf avec `--remplacer`, à utiliser aussi après un changement de structure : les données ajoutées dans la copie sont alors perdues. Les mots de passe tirés au hasard pour les comptes de démonstration sont dans `data/comptes_demo.txt`, et les projets QGIS qui visent ce serveur dans `projets/mon_postgres/`. Ces deux éléments ne sont pas versionnés.
 
 ## Les sources
 

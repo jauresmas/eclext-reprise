@@ -43,6 +43,7 @@ if __name__ == "__main__":
     lancer(python, "07_jeu_essai.py")
     lancer(config.QGIS_PYTHON, "-u", "08_projets_qgis.py")
     lancer(config.QGIS_PYTHON, "-u", "08b_modele_qgis.py")
+    lancer(config.QGIS_PYTHON, "-u", "08c_paquet_qfield.py")
     if not args.sans_recette:
         # Un test en échec n'arrête pas la chaîne : il apparaît dans le cahier de recette
         subprocess.run([python, "-m", "pytest", ".", "-q", "--tb=short", "-p", "no:cacheprovider"], cwd=config.RACINE / "tests")

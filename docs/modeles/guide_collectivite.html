@@ -3,7 +3,7 @@
 <body>
 <header>
   <h1>Éclairage de votre commune : guide pour la collectivité</h1>
-  <p>Consulter le patrimoine, signaler une panne, suivre sa réparation. Temps de lecture : 5 minutes.</p>
+  <p>Consulter le patrimoine, signaler une panne au bureau ou sur le terrain, suivre sa réparation. Temps de lecture : 7 minutes.</p>
 </header>
 
 <p>Ce projet QGIS vous montre l'éclairage de votre commune et vous permet de signaler une panne. Vous ne voyez que votre commune et vous ne pouvez pas modifier le patrimoine : c'est la base de données qui l'impose, selon votre compte. Vous ne risquez donc pas de casser quelque chose.</p>
@@ -64,7 +64,28 @@
   <tr><td>Gris</td><td>Rejeté : sans suite, le motif est ajouté à la description</td><td>Vert</td><td>Réalisée, avec un compte rendu</td></tr>
 </table>
 
-<h2>7. Si quelque chose ne va pas</h2>
+<h2>7. Déclarer une panne sur le terrain, avec QField</h2>
+<p>Sur le téléphone, l'application gratuite QField ouvre un projet simplifié. Il contient les points de votre commune et fonctionne sans réseau : seul le fond de plan IGN a besoin du réseau. Il ne contient aucun mot de passe et aucune connexion à la base.</p>
+<p class="source">Cette partie n'a pas encore été essayée sur un vrai téléphone (vérification T-MAN-06 du cahier de recette). Les libellés de QField sont donnés en anglais, comme dans sa documentation : ils peuvent changer selon la langue du téléphone.</p>
+<p><strong>Une seule fois : installer le projet.</strong></p>
+<ol>
+  <li>Installez QField depuis la boutique d'applications du téléphone.</li>
+  <li>Copiez sur le téléphone le fichier <code>.zip</code> remis par l'administrateur.</li>
+  <li>Dans QField, touchez <strong>Open local files</strong>, puis le bouton <strong>+</strong>, et importez ce fichier. Ouvrez ensuite le projet <code>eclairage_terrain</code>.</li>
+</ol>
+<p><strong>Sur place : déclarer.</strong> Les triangles orange sont les signalements déjà en cours : inutile de les déclarer de nouveau.</p>
+<ol>
+  <li>Ouvrez le menu latéral, touchez le <strong>crayon</strong> pour passer en saisie, puis la couche <strong>Signaler une panne</strong>.</li>
+  <li>Placez le réticule sur le point lumineux en déplaçant la carte. Vous pouvez aussi le verrouiller sur votre position avec <strong>Lock to position</strong>, à condition que le GPS soit précis. Le réticule s'accroche au point voisin.</li>
+  <li>Touchez le bouton vert <strong>+</strong>. La fiche s'ouvre sur le point le plus proche, avec sa rue et sa distance au réticule. <strong>Vérifiez que c'est le bon.</strong> À plus de 100 m d'un point, la fiche refuse d'être enregistrée.</li>
+  <li>Choisissez la nature, décrivez ce que vous voyez, prenez une photo si elle aide, puis validez la fiche.</li>
+</ol>
+<div class="note alerte">
+  <p><strong>La panne n'est pas encore dans la base.</strong> Elle reste sur le téléphone jusqu'à l'envoi ci-dessous. Pour un danger immédiat, appelez d'abord le numéro d'astreinte.</p>
+</div>
+<p><strong>Au retour : envoyer.</strong> Dans <strong>Open local files</strong>, ouvrez le menu du projet, choisissez <strong>Send compressed folder to...</strong> et transmettez le <code>.zip</code> à l'administrateur, qui le verse dans la base. Envoyer deux fois le même projet ne crée pas de doublon. La panne apparaît ensuite sur la carte du bureau, et sa photo dans l'onglet <strong>Terrain</strong> de sa fiche. Avant d'installer un nouveau paquet, envoyez vos pannes : il remplace l'ancien.</p>
+
+<h2>8. Si quelque chose ne va pas</h2>
 <ul>
   <li><strong>Une information est fausse sur une fiche</strong> (puissance, type de source, position) : faites un signalement de nature « Autre » et décrivez l'erreur. L'administrateur corrige, et la correction est conservée quand la source est republiée.</li>
   <li><strong>« Signalement refusé » apparaît en haut de la carte</strong> : le motif est écrit à côté. Transmettez-le à l'administrateur si vous ne pouvez pas le corriger.</li>

@@ -27,6 +27,7 @@ SERIES = {
     "T-FLX": "Flux : une nouvelle publication, sur une copie de la base",
     "T-APP": "Projets QGIS : rouverts avec le compte de chaque profil",
     "T-IHM": "Fenêtre QGIS : le parcours réel de chaque profil",
+    "T-TER": "Terrain : du paquet QField jusqu'à la base",
     "T-MAN": "Vérifications par un utilisateur",
 }
 
@@ -36,6 +37,7 @@ MANUELS = [
     ("T-MAN-03", "Un échantillon de points est comparé au terrain : position, type de source, puissance"),
     ("T-MAN-04", "Un gestionnaire confirme ou écarte les correspondances marquées « arbitrage »"),
     ("T-MAN-05", "Une session de formation est déroulée avec le plan proposé, et chronométrée"),
+    ("T-MAN-06", "Sur un vrai téléphone, avec QField, une personne de la collectivité déclare une panne avec photo, renvoie le projet, et la panne arrive dans la base"),
 ]
 
 

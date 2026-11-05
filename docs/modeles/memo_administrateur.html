@@ -33,6 +33,15 @@ ALTER ROLE mairie_reze NOLOGIN;</code></pre>
   <li>Le signalement se clôt seul quand l'entreprise déclare l'intervention réalisée. Sinon, passez-le à « Rejeté » et complétez sa description pour expliquer pourquoi.</li>
 </ol>
 
+<h2>Recevoir les pannes du terrain (QField)</h2>
+<p>Le paquet du téléphone est extrait avec le compte de la collectivité : il contient son périmètre, sans connexion à la base ni mot de passe. Refaites-le pour remettre à jour les points et les signalements en cours.</p>
+<pre><code>cd scripts
+"C:\Program Files\QGIS 3.34.12\bin\python-qgis-ltr.bat" -u 08c_paquet_qfield.py --compte mairie_reze
+# écrit projets\qfield\eclairage_terrain_mairie_reze.zip
+
+python 13_importer_terrain.py retour.zip --port 5436 --compte mairie_reze</code></pre>
+<p>Pour le compte de démonstration, glissez le dossier ou le <code>.zip</code> reçu sur <code>importer_pannes_terrain.bat</code>. Le bilan doit tomber juste : reçues = importées + déjà importées + refusées. Le détail de chaque ligne est dans <code>livrables/terrain/</code>, motifs de refus compris. L'import signale aussi un point qui a déjà un signalement ouvert : la panne est gardée, à vous de voir s'il s'agit d'un doublon. <code>declare_le</code> donne l'arrivée en base, <code>constate_le</code> l'heure du téléphone.</p>
+
 <h2>Traiter les écarts de contrôle</h2>
 <p>Vue « Contrôle de la reprise », couche <strong>Écarts de contrôle</strong>, onglet <strong>Décision</strong> : « Confirmée », « Faux positif » ou « Corrigée », avec un commentaire. Votre nom et la date s'ajoutent à l'enregistrement. Une décision survit aux passes de contrôle suivantes.</p>
 <figure class="petite">
@@ -60,4 +69,5 @@ SELECT * FROM controle.bilan_regle WHERE nb_ecarts > 0;</code></pre>
 -- Qui a changé quoi sur un point
 SELECT quand, qui, action, avant, apres FROM audit.journal
 WHERE table_nom = 'metier.point_lumineux' AND objet_id = 63357 ORDER BY quand DESC;</code></pre>
+<p>Les photos du terrain ne sont pas dans la base, qui garde seulement leur nom : sauvegardez aussi <code>data/terrain/photos</code>.</p>
 </body></html>

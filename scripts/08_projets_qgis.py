@@ -68,7 +68,7 @@ ALIAS = {
               "retire_le": "Retiré de la source le"},
     "signalement": {"point_id": "Point lumineux", "support_id": "Support", "insee": "Commune", "nature": "Nature",
                     "statut": "Statut", "declare_le": "Déclaré le", "declarant": "Déclarant", "description": "Description",
-                    "jeu_essai": "Jeu d'essai"},
+                    "jeu_essai": "Jeu d'essai", "constate_le": "Constaté sur place le", "photo": "Photo"},
     "intervention": {"signalement_id": "Signalement", "point_id": "Point lumineux", "support_id": "Support",
                      "armoire_id": "Armoire", "insee": "Commune", "entreprise_id": "Entreprise", "nature": "Nature",
                      "etat": "État", "date_prevue": "Date prévue", "date_realisee": "Date de réalisation",
@@ -83,6 +83,28 @@ ALIAS = {
 
 # Colonnes techniques exclues de la recherche par la barre de localisation
 NON_CHERCHEES = ["id", "gestionnaire_id", "lot_id", "ligne_source", "support_id", "depart_id", "armoire_id", "objet_id", "nb_sources"]
+
+REGLES_SOURCE = [("Diodes électroluminescentes", "\"type_source\" = 'LED'", "#1a9850"),
+                 ("Sodium haute pression", "\"type_source\" = 'SHP'", "#f28e2b"),
+                 ("Sodium basse pression", "\"type_source\" = 'SBP'", "#e8c14a"),
+                 ("Iodures métalliques", "\"type_source\" = 'IM'", "#7b5ea7"),
+                 ("Vapeur de mercure", "\"type_source\" = 'VM'", "#d7301f"),
+                 ("Fluorescence, halogène, autres", "\"type_source\" NOT IN ('LED', 'SHP', 'SBP', 'IM', 'VM', 'XX', 'AU')", "#4c78a8"),
+                 ("Non renseigné", "\"type_source\" IN ('XX', 'AU')", "#9a9a9a")]
+
+# Le dossier des photos se déduit de celui du projet : l'expression vaut dans projets/ comme dans projets/mon_postgres/.
+# Sous Windows, @project_folder arrive avec des antislashs : on les remplace avant de chercher le dossier.
+RACINE_PHOTOS = "regexp_replace(replace(@project_folder, '\\\\', '/'), '/projets(/mon_postgres)?$', '') || '/data/terrain/photos'"
+
+
+def fond_ign():
+    """Fond de plan IGN (Géoplateforme, licence ouverte) ; le projet reste lisible sans réseau."""
+    tuile = ("SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2"
+             "&STYLE=normal&FORMAT=image/png&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}")
+    # Le « ? » reste en clair : encodé, QGIS ne reçoit aucune tuile, sans message d'erreur
+    fond = QgsRasterLayer("type=xyz&zmin=0&zmax=19&url=https://data.geopf.fr/wmts?" + quote(tuile, safe="/{}"), "Plan IGN", "wms")
+    assert fond.isValid(), "fond de plan invalide"
+    return fond
 
 
 def idx(lyr, champ):
@@ -127,6 +149,15 @@ def texte_long(lyr, *champs):
         lyr.setEditorWidgetSetup(idx(lyr, champ), QgsEditorWidgetSetup("TextEdit", {"IsMultiline": True, "UseHtml": False}))
 
 
+def photo_en_lecture(lyr, champ, racine):
+    """Image affichée dans la fiche ; la base ne garde que le nom du fichier, le dossier vient de l'expression."""
+    lyr.setEditorWidgetSetup(idx(lyr, champ), QgsEditorWidgetSetup("ExternalResource", {
+        "DocumentViewer": 1, "DocumentViewerHeight": 320, "DocumentViewerWidth": 0, "FileWidget": False, "FileWidgetButton": False,
+        "RelativeStorage": 2, "UseLink": False, "FullUrl": False,
+        "PropertyCollection": {"name": None, "type": "collection",
+                               "properties": {"propertyRootPath": {"active": True, "type": 3, "expression": racine}}}}))
+
+
 def masque(lyr, *champs):
     for champ in champs:
         lyr.setEditorWidgetSetup(idx(lyr, champ), QgsEditorWidgetSetup("Hidden", {}))
@@ -156,15 +187,17 @@ def lecture_seule(lyr, *champs):
 
 
 def onglets(lyr, structure):
-    """structure : [(titre, contenu)] ; contenu = liste de champs, de QgsRelation, ou de (titre, champs, visibilité)."""
+    """structure : [(titre, contenu[, visibilité])] ; contenu = liste de champs, de QgsRelation, ou de (titre, champs, visibilité)."""
     fc = lyr.editFormConfig()
     fc.setLayout(QgsEditFormConfig.TabLayout)
     racine = fc.invisibleRootContainer()
     racine.clear()
-    for titre, contenu in structure:
+    for titre, contenu, *visible in structure:
         onglet = QgsAttributeEditorContainer(titre, racine)
         onglet.setType(Qgis.AttributeEditorContainerType.Tab)
         onglet.setColumnCount(1)
+        if visible:
+            onglet.setVisibilityExpression(QgsOptionalExpression(QgsExpression(visible[0])))
         for element in contenu:
             if isinstance(element, str):
                 onglet.addChildElement(QgsAttributeEditorField(element, idx(lyr, element), onglet))
@@ -307,12 +340,7 @@ def construire(profil):
         regle = pg("controle", "regle", "Règles de contrôle", "code")
     listes = list(ref.values()) + [gestionnaire, societe] + ([regle] if regle else [])
 
-    # Fond de plan IGN (Géoplateforme, licence ouverte) ; le projet reste lisible sans réseau
-    tuile = ("SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2"
-             "&STYLE=normal&FORMAT=image/png&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}")
-    # Le « ? » reste en clair : encodé, QGIS ne reçoit aucune tuile, sans message d'erreur
-    fond = QgsRasterLayer("type=xyz&zmin=0&zmax=19&url=https://data.geopf.fr/wmts?" + quote(tuile, safe="/{}"), "Plan IGN", "wms")
-    assert fond.isValid(), "fond de plan invalide"
+    fond = fond_ign()
     projet.addMapLayer(fond, False)
     # Transformation fixée dans le projet : QGIS ne pose pas la question à l'ouverture
     mercator = QgsCoordinateReferenceSystem("EPSG:3857")
@@ -428,10 +456,11 @@ def construire(profil):
     liste(signalement, "nature", ref["nature_signalement"], nulle=False)
     liste(signalement, "statut", ref["statut_signalement"], nulle=False)
     reference(signalement, "point_id", rel_signalements, lecture=True)
-    horodatage(signalement, "declare_le")
+    horodatage(signalement, "declare_le", "constate_le")
     texte_long(signalement, "description")
     booleens(signalement, "jeu_essai")
-    masque(signalement, "id", "support_id")
+    photo_en_lecture(signalement, "photo", RACINE_PHOTOS)
+    masque(signalement, "id", "support_id", "uuid_terrain")
     # Ces valeurs par défaut existent aussi dans la base, mais sous une forme que les widgets ne savent pas
     # afficher (now(), false) : sans elles, le champ paraît vide et le bouton OK reste grisé à la création
     defaut(signalement, "nature", "'PANNE'")
@@ -439,9 +468,10 @@ def construire(profil):
     defaut(signalement, "declare_le", "now()")
     defaut(signalement, "jeu_essai", "false")
     onglets(signalement, [("Signalement", ["point_id", "insee", "nature", "description"]),
-                          ("Suivi", ["statut", "declare_le", "declarant", "jeu_essai", rel_suite])])
+                          ("Suivi", ["statut", "declare_le", "declarant", "jeu_essai", rel_suite]),
+                          ("Terrain", ["constate_le", "photo"], '"uuid_terrain" IS NOT NULL')])
     signalement.setDisplayExpression("\"nature\" || ' du ' || format_date(\"declare_le\", 'dd/MM/yyyy')")
-    lecture_seule(signalement, "point_id", "insee", "declare_le", "declarant", "jeu_essai")
+    lecture_seule(signalement, "point_id", "insee", "declare_le", "declarant", "jeu_essai", "constate_le", "photo")
     if not admin:
         lecture_seule(signalement, "statut")
     recherches(signalement, {"Ouverts depuis plus de 48 h": "\"statut\" = 'OUVERT' AND \"declare_le\" < now() - to_interval('2 days')",
@@ -518,13 +548,7 @@ def construire(profil):
     for lyr in [commune, fond]:
         lyr.setFlags(lyr.flags() & ~QgsMapLayer.Identifiable)
 
-    regles(point, [("Diodes électroluminescentes", "\"type_source\" = 'LED'", "#1a9850"),
-                   ("Sodium haute pression", "\"type_source\" = 'SHP'", "#f28e2b"),
-                   ("Sodium basse pression", "\"type_source\" = 'SBP'", "#e8c14a"),
-                   ("Iodures métalliques", "\"type_source\" = 'IM'", "#7b5ea7"),
-                   ("Vapeur de mercure", "\"type_source\" = 'VM'", "#d7301f"),
-                   ("Fluorescence, halogène, autres", "\"type_source\" NOT IN ('LED', 'SHP', 'SBP', 'IM', 'VM', 'XX', 'AU')", "#4c78a8"),
-                   ("Non renseigné", "\"type_source\" IN ('XX', 'AU')", "#9a9a9a")], taille=1.8)
+    regles(point, REGLES_SOURCE, taille=1.8)
     echelle_max(point, 100000)
     etiquettes(point, '"code"', 1500, taille=7)
     regles(support, [("Support", "TRUE", "#555555")], taille=1.1, forme="square")

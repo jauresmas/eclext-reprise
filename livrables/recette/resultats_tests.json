@@ -5,7 +5,7 @@
   "resultat": "réussi",
   "constat": "63093 lignes = 63093 points + 0 fusionnées + 0 écartées, écart 0",
   "detail": "",
-  "duree_s": 0.13
+  "duree_s": 0.11
  },
  {
   "numero": "T-REP-01 [NANTES]",
@@ -21,7 +21,7 @@
   "resultat": "réussi",
   "constat": "18147 lignes = 18104 points + 33 fusionnées + 10 écartées, écart 0",
   "detail": "",
-  "duree_s": 0.13
+  "duree_s": 0.12
  },
  {
   "numero": "T-REP-02",
@@ -69,7 +69,7 @@
   "resultat": "réussi",
   "constat": "0 reprises, 117 signalées par TEM_01",
   "detail": "",
-  "duree_s": 0.09
+  "duree_s": 0.07
  },
  {
   "numero": "T-REP-08",
@@ -77,7 +77,7 @@
   "resultat": "réussi",
   "constat": "saillie maximale reprise 11.00 m, 877 valeurs signalées par VAL_05",
   "detail": "",
-  "duree_s": 0.1
+  "duree_s": 0.07
  },
  {
   "numero": "T-REP-09",
@@ -85,7 +85,7 @@
   "resultat": "réussi",
   "constat": "92 correspondances, 0 orphelines",
   "detail": "",
-  "duree_s": 0.01
+  "duree_s": 0.0
  },
  {
   "numero": "T-REP-10",
@@ -93,7 +93,7 @@
   "resultat": "réussi",
   "constat": "63093 points sur 63093 portent l'hypothèse",
   "detail": "",
-  "duree_s": 0.08
+  "duree_s": 0.07
  },
  {
   "numero": "T-REP-11",
@@ -285,7 +285,7 @@
   "resultat": "réussi",
   "constat": "suppression refusée",
   "detail": "",
-  "duree_s": 0.02
+  "duree_s": 0.03
  },
  {
   "numero": "T-STR-06 [22:00HL-True]",
@@ -381,7 +381,7 @@
   "resultat": "réussi",
   "constat": "6539 lignes, communes ['44143']",
   "detail": "",
-  "duree_s": 0.08
+  "duree_s": 0.1
  },
  {
   "numero": "T-ROL-01 [metier.point_lumineux-demo_entreprise-communes1]",
@@ -389,7 +389,7 @@
   "resultat": "réussi",
   "constat": "10446 lignes, communes ['44020', '44143']",
   "detail": "",
-  "duree_s": 0.1
+  "duree_s": 0.11
  },
  {
   "numero": "T-ROL-01 [metier.point_lumineux-demo_entreprise_b-communes2]",
@@ -397,7 +397,7 @@
   "resultat": "réussi",
   "constat": "4687 lignes, communes ['44215']",
   "detail": "",
-  "duree_s": 0.11
+  "duree_s": 0.08
  },
  {
   "numero": "T-ROL-01 [metier.support-demo_commune-communes0]",
@@ -405,7 +405,7 @@
   "resultat": "réussi",
   "constat": "6332 lignes, communes ['44143']",
   "detail": "",
-  "duree_s": 0.09
+  "duree_s": 0.1
  },
  {
   "numero": "T-ROL-01 [metier.support-demo_entreprise-communes1]",
@@ -421,7 +421,7 @@
   "resultat": "réussi",
   "constat": "4598 lignes, communes ['44215']",
   "detail": "",
-  "duree_s": 0.09
+  "duree_s": 0.08
  },
  {
   "numero": "T-ROL-01 [metier.armoire-demo_commune-communes0]",
@@ -429,7 +429,7 @@
   "resultat": "réussi",
   "constat": "136 lignes, communes ['44143']",
   "detail": "",
-  "duree_s": 0.05
+  "duree_s": 0.04
  },
  {
   "numero": "T-ROL-01 [metier.armoire-demo_entreprise-communes1]",
@@ -445,7 +445,7 @@
   "resultat": "réussi",
   "constat": "160 lignes, communes ['44215']",
   "detail": "",
-  "duree_s": 0.05
+  "duree_s": 0.04
  },
  {
   "numero": "T-ROL-01 [controle.ecart-demo_commune-communes0]",
@@ -477,7 +477,7 @@
   "resultat": "réussi",
   "constat": "178670 points",
   "detail": "",
-  "duree_s": 0.08
+  "duree_s": 0.07
  },
  {
   "numero": "T-ROL-03",
@@ -493,7 +493,7 @@
   "resultat": "réussi",
   "constat": "refusé par la base",
   "detail": "",
-  "duree_s": 0.05
+  "duree_s": 0.04
  },
  {
   "numero": "T-ROL-04 [UPDATE metier.point_lumineux SET puissance_w = 1-demo_entreprise]",
@@ -501,7 +501,7 @@
   "resultat": "réussi",
   "constat": "refusé par la base",
   "detail": "",
-  "duree_s": 0.05
+  "duree_s": 0.04
  },
  {
   "numero": "T-ROL-04 [UPDATE metier.point_lumineux SET puissance_w = 1-demo_lecture]",
@@ -629,7 +629,7 @@
   "resultat": "réussi",
   "constat": "nature, titulaire et objet refusés ; compte rendu accepté",
   "detail": "",
-  "duree_s": 0.06
+  "duree_s": 0.05
  },
  {
   "numero": "T-ROL-08",
@@ -669,7 +669,7 @@
   "resultat": "réussi",
   "constat": "refusée par la base",
   "detail": "",
-  "duree_s": 0.02
+  "duree_s": 0.01
  },
  {
   "numero": "T-EXP-03 [A_PLANIFIER-REALISEE]",
@@ -693,7 +693,7 @@
   "resultat": "réussi",
   "constat": "PLANIFIEE vers REALISEE refusé",
   "detail": "",
-  "duree_s": 0.03
+  "duree_s": 0.02
  },
  {
   "numero": "T-EXP-04",
@@ -717,7 +717,7 @@
   "resultat": "réussi",
   "constat": "refusée",
   "detail": "",
-  "duree_s": 0.03
+  "duree_s": 0.02
  },
  {
   "numero": "T-EXP-06 [2026-11-01-None]",
@@ -725,7 +725,7 @@
   "resultat": "réussi",
   "constat": "refusée",
   "detail": "",
-  "duree_s": 0.03
+  "duree_s": 0.02
  },
  {
   "numero": "T-EXP-06 [2026-11-01-   ]",
@@ -741,7 +741,7 @@
   "resultat": "réussi",
   "constat": "refusé sans nouveau matériel",
   "detail": "",
-  "duree_s": 0.03
+  "duree_s": 0.02
  },
  {
   "numero": "T-EXP-08",
@@ -765,7 +765,7 @@
   "resultat": "réussi",
   "constat": "dismantled, valideJusque 20261020",
   "detail": "",
-  "duree_s": 0.04
+  "duree_s": 0.03
  },
  {
   "numero": "T-EXP-11",
@@ -773,7 +773,7 @@
   "resultat": "réussi",
   "constat": "OUVERT, PRIS_EN_COMPTE, puis CLOS",
   "detail": "",
-  "duree_s": 0.04
+  "duree_s": 0.03
  },
  {
   "numero": "T-EXP-12",
@@ -789,7 +789,7 @@
   "resultat": "réussi",
   "constat": "SHP vers LED, par postgres",
   "detail": "",
-  "duree_s": 0.04
+  "duree_s": 0.03
  },
  {
   "numero": "T-EXP-14",
@@ -885,7 +885,7 @@
   "resultat": "réussi",
   "constat": "63093 identifiants distincts, 0 mal formés",
   "detail": "",
-  "duree_s": 0.06
+  "duree_s": 0.07
  },
  {
   "numero": "T-ECL-04 [NANTES]",
@@ -909,7 +909,7 @@
   "resultat": "réussi",
   "constat": "15056 dates, 0 fautives",
   "detail": "",
-  "duree_s": 0.02
+  "duree_s": 0.01
  },
  {
   "numero": "T-ECL-05 [valideDe-NANTES]",
@@ -989,7 +989,7 @@
   "resultat": "réussi",
   "constat": "5 listes vérifiées, 0 écart",
   "detail": "",
-  "duree_s": 1.09
+  "duree_s": 0.69
  },
  {
   "numero": "T-ECL-06 [LOIRE]",
@@ -1005,7 +1005,7 @@
   "resultat": "réussi",
   "constat": "attributs absents de la source : typeSource, usage, estAdaptatif, puissance, temperatureCouleur, extinctionNuit",
   "detail": "",
-  "duree_s": 1.18
+  "duree_s": 1.46
  },
  {
   "numero": "T-ECL-07 [NANTES]",
@@ -1021,7 +1021,7 @@
   "resultat": "réussi",
   "constat": "attributs absents de la source : valideDe",
   "detail": "",
-  "duree_s": 0.43
+  "duree_s": 0.42
  },
  {
   "numero": "T-ECL-08 [SDE18]",
@@ -1037,7 +1037,7 @@
   "resultat": "réussi",
   "constat": "97473 lignes, valeurs de eclairagePublic : ['false', 'true']",
   "detail": "",
-  "duree_s": 0.39
+  "duree_s": 0.41
  },
  {
   "numero": "T-ECL-08 [LOIRE]",
@@ -1085,7 +1085,7 @@
   "resultat": "réussi",
   "constat": "NON RECEVABLE : 1 anomalie bloquante (maximum 0) ; 4 763,0 anomalies majeures pour mille objets (maximum 20)",
   "detail": "",
-  "duree_s": 0.01
+  "duree_s": 0.0
  },
  {
   "numero": "T-ECL-11 [NANTES-0]",
@@ -1093,7 +1093,7 @@
   "resultat": "réussi",
   "constat": "NON RECEVABLE : 3 021,6 anomalies majeures pour mille objets (maximum 20)",
   "detail": "",
-  "duree_s": 0.01
+  "duree_s": 0.0
  },
  {
   "numero": "T-ECL-11 [LOIRE-18104]",
@@ -1101,7 +1101,7 @@
   "resultat": "réussi",
   "constat": "NON RECEVABLE : 18 104 anomalies bloquantes (maximum 0) ; 1 486,5 anomalies majeures pour mille objets (maximum 20)",
   "detail": "",
-  "duree_s": 0.01
+  "duree_s": 0.0
  },
  {
   "numero": "T-FLX-01",
@@ -1125,7 +1125,7 @@
   "resultat": "réussi",
   "constat": "5 points gardés, retirés le ['2026-12-01'], 5 supports retirés",
   "detail": "",
-  "duree_s": 0.32
+  "duree_s": 0.35
  },
  {
   "numero": "T-FLX-04",
@@ -1141,7 +1141,7 @@
   "resultat": "réussi",
   "constat": "2 points à l'export, 2 supports créés",
   "detail": "",
-  "duree_s": 0.17
+  "duree_s": 0.18
  },
  {
   "numero": "T-FLX-06",
@@ -1165,13 +1165,13 @@
   "resultat": "réussi",
   "constat": "97470 lignes = 97470 points, écart 0, 0 écart REP_01",
   "detail": "",
-  "duree_s": 0.13
+  "duree_s": 0.12
  },
  {
   "numero": "T-FLX-09",
   "libelle": "un fichier déjà chargé (même empreinte) n'est pas chargé une seconde fois",
   "resultat": "réussi",
-  "constat": "[16:48:05] nantes : lot 5 déjà chargé (même empreinte)",
+  "constat": "[21:44:02] nantes : lot 5 déjà chargé (même empreinte)",
   "detail": "",
   "duree_s": 0.0
  },
@@ -1291,7 +1291,7 @@
   "numero": "T-APP-04 [Signalements]",
   "libelle": "les fiches sont organisées en onglets, avec les fiches liées",
   "resultat": "réussi",
-  "constat": "Signalement, Suivi",
+  "constat": "Signalement, Suivi, Terrain",
   "detail": "",
   "duree_s": 0.0
  },
@@ -1324,6 +1324,30 @@
   "libelle": "les listes de valeurs n'encombrent pas la barre de recherche",
   "resultat": "réussi",
   "constat": "18 couches exclues de la recherche",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-11 [administrateur]",
+  "libelle": "la fiche d'un signalement retrouve le dossier des photos de terrain, depuis projets/ comme depuis projets/mon_postgres/",
+  "resultat": "réussi",
+  "constat": "widget ExternalResource, dossier data/terrain/photos",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-11 [collectivite]",
+  "libelle": "la fiche d'un signalement retrouve le dossier des photos de terrain, depuis projets/ comme depuis projets/mon_postgres/",
+  "resultat": "réussi",
+  "constat": "widget ExternalResource, dossier data/terrain/photos",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-APP-11 [entreprise]",
+  "libelle": "la fiche d'un signalement retrouve le dossier des photos de terrain, depuis projets/ comme depuis projets/mon_postgres/",
+  "resultat": "réussi",
+  "constat": "widget ExternalResource, dossier data/terrain/photos",
   "detail": "",
   "duree_s": 0.0
  },
@@ -1427,7 +1451,7 @@
   "numero": "T-IHM-03 [fiche_signalement_saisie]",
   "libelle": "les captures des supports de formation sont produites",
   "resultat": "réussi",
-  "constat": "12 Ko",
+  "constat": "11 Ko",
   "detail": "",
   "duree_s": 0.0
  },
@@ -1459,7 +1483,7 @@
   "numero": "T-IHM-03 [qgis_collectivite_patrimoine]",
   "libelle": "les captures des supports de formation sont produites",
   "resultat": "réussi",
-  "constat": "647 Ko",
+  "constat": "632 Ko",
   "detail": "",
   "duree_s": 0.0
  },
@@ -1467,8 +1491,128 @@
   "numero": "T-IHM-03 [qgis_entreprise_interventions]",
   "libelle": "les captures des supports de formation sont produites",
   "resultat": "réussi",
-  "constat": "640 Ko",
+  "constat": "629 Ko",
   "detail": "",
   "duree_s": 0.0
+ },
+ {
+  "numero": "T-TER-01",
+  "libelle": "le paquet s'ouvre hors de son dossier d'origine, sans connexion à la base ni mot de passe",
+  "resultat": "réussi",
+  "constat": "couches : Communes, Plan IGN, Points lumineux, Signalements en cours, Signaler une panne ; fichiers : DCIM/, eclairage_terrain.qgs, reference.gpkg, signalements_terrain.gpkg",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-TER-02",
+  "libelle": "le paquet ne contient que le périmètre du compte, extrait avec ce compte",
+  "resultat": "réussi",
+  "constat": "6539 points sur 178670, communes ['44143']",
+  "detail": "",
+  "duree_s": 0.02
+ },
+ {
+  "numero": "T-TER-03",
+  "libelle": "sur le téléphone, seule la couche de saisie est modifiable, et elle part vide",
+  "resultat": "réussi",
+  "constat": "modifiable : ['Signaler une panne'], lignes au départ : 0",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-TER-04",
+  "libelle": "le repère posé à 3 m d'un point ouvre une fiche remplie sur ce point",
+  "resultat": "réussi",
+  "constat": "EPRZ003013, Impasse de la Morinière (Rezé), 3 m, fiche ouverte en 0.3 s",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-TER-05",
+  "libelle": "la fiche refuse un repère loin de tout point, et « Autre » sans description",
+  "resultat": "réussi",
+  "constat": "loin de tout point : ['code_point'] ; Autre sans description : ['description']",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-TER-06",
+  "libelle": "la photo passe par le widget de pièce jointe, avec un chemin relatif au projet, et le repère s'accroche aux points",
+  "resultat": "réussi",
+  "constat": "widget ExternalResource, stockage relatif 1, accroche True",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-TER-07",
+  "libelle": "une ligne importée est signée par la base, placée sur son point, et une seconde passe ne crée pas de doublon",
+  "resultat": "réussi",
+  "constat": "importee puis deja_importee, signé demo_commune, statut OUVERT, commune 44143",
+  "detail": "",
+  "duree_s": 0.07
+ },
+ {
+  "numero": "T-TER-08",
+  "libelle": "chaque ligne fautive est refusée avec son motif, sans bloquer les autres",
+  "resultat": "réussi",
+  "constat": "hors périmètre : Point hors du périmètre de ce compte ; point inconnu : Objet introuvable : renseigner un point lumineux, un support ou une armoire ; sans point : Aucun point lumineux rattaché ; nature inconnue : Nature de signalement inconnue ; sans identifiant : Identifiant de terrain absent ; identifiant faux : invalid input syntax for type uuid: \"pas-un-identifiant\" ; date future : new row for relation \"signalement\" violates check constraint \"signalement_check1\" ; photo avec dossier : new row for relation \"signalement\" violates check constraint \"signalement_photo_check\"",
+  "detail": "",
+  "duree_s": 0.07
+ },
+ {
+  "numero": "T-TER-09 [demo_commune-True]",
+  "libelle": "seuls la collectivité et l'administrateur peuvent verser des pannes",
+  "resultat": "réussi",
+  "constat": "droit d'exécution : True",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-TER-09 [demo_admin-True]",
+  "libelle": "seuls la collectivité et l'administrateur peuvent verser des pannes",
+  "resultat": "réussi",
+  "constat": "droit d'exécution : True",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-TER-09 [demo_entreprise-False]",
+  "libelle": "seuls la collectivité et l'administrateur peuvent verser des pannes",
+  "resultat": "réussi",
+  "constat": "droit d'exécution : False",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-TER-09 [demo_lecture-False]",
+  "libelle": "seuls la collectivité et l'administrateur peuvent verser des pannes",
+  "resultat": "réussi",
+  "constat": "droit d'exécution : False",
+  "detail": "",
+  "duree_s": 0.0
+ },
+ {
+  "numero": "T-TER-10",
+  "libelle": "le dossier du téléphone arrive dans la base : bilan juste, photo copiée, refus expliqué, second import sans doublon",
+  "resultat": "réussi",
+  "constat": "Reçues 3 : importées 2, déjà importées 0, refusées 1.",
+  "detail": "",
+  "duree_s": 0.77
+ },
+ {
+  "numero": "T-TER-11",
+  "libelle": "une panne encore dans le fichier -wal de SQLite, projet resté ouvert dans QField, n'est pas perdue",
+  "resultat": "réussi",
+  "constat": "Reçues 1 : importées 1, déjà importées 0, refusées 0.",
+  "detail": "",
+  "duree_s": 1.06
+ },
+ {
+  "numero": "T-TER-12",
+  "libelle": "un chemin de photo venu du téléphone ne peut pas faire lire un fichier hors de l'envoi",
+  "resultat": "réussi",
+  "constat": "chemin relatif, chemin absolu, remontée et extension interdite testés",
+  "detail": "",
+  "duree_s": 0.01
  }
 ]

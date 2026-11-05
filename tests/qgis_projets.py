@@ -11,8 +11,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 import config  # noqa: E402
 import psycopg2  # noqa: E402
-from qgis.core import (QgsApplication, QgsExpression, QgsFeatureRequest, QgsFieldConstraints, QgsGeometry,  # noqa: E402
-                       QgsProject, QgsVectorDataProvider, QgsVectorLayerUtils)
+from qgis.core import (QgsApplication, QgsExpression, QgsExpressionContext, QgsExpressionContextScope, QgsExpressionContextUtils,  # noqa: E402
+                       QgsFeatureRequest, QgsFieldConstraints, QgsGeometry, QgsProject, QgsVectorDataProvider, QgsVectorLayerUtils)
 
 ATTENDU_POINTS = {"administrateur": None, "collectivite": ["44143"], "entreprise": ["44143", "44020"]}
 MARQUE = "Essai automatique de la recette, à effacer"
@@ -65,6 +65,20 @@ def verifier(profil):
     r["onglets"] = {nom: [o.name() for o in couches[nom].editFormConfig().tabs()]
                     for nom in ["Armoires", "Supports", "Points lumineux", "Signalements", "Interventions"]}
     r["actions"] = {nom: [a.name() for a in couches[nom].actions().actions()] for nom in ["Points lumineux", "Signalements"]}
+
+    # Dossier des photos de terrain : l'expression de la fiche, évaluée avec la vraie variable du projet ouvert,
+    # puis avec le même chemin que QGIS donnerait depuis projets/mon_postgres/ (mêmes séparateurs)
+    reglage = signalement.editorWidgetSetup(signalement.fields().indexOf("photo"))
+    racine = reglage.config()["PropertyCollection"]["properties"]["propertyRootPath"]["expression"]
+    r["photo_terrain"] = {"widget": reglage.type()}
+    dossier = QgsExpressionContextUtils.projectScope(projet).variable("project_folder")
+    separateur = "\\" if "\\" in dossier else "/"
+    for cle, chemin in {"projets": dossier, "mon_postgres": dossier + separateur + "mon_postgres"}.items():
+        contexte = QgsExpressionContext()
+        portee = QgsExpressionContextScope()
+        portee.setVariable("project_folder", chemin)
+        contexte.appendScope(portee)
+        r["photo_terrain"][cle] = QgsExpression(racine).evaluate(contexte)
 
     # Recherches enregistrées : toutes doivent s'exécuter sur la base, sans erreur
     r["recherches"] = {}

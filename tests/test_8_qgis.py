@@ -11,7 +11,7 @@ import config
 
 PROFILS = ["administrateur", "collectivite", "entreprise"]
 ONGLETS = {"Points lumineux": ["Identification", "Matériel", "Photométrie", "Allumage", "Signalements", "Interventions", "Validité et origine"],
-           "Interventions": ["Intervention", "Réalisation", "Suivi"], "Signalements": ["Signalement", "Suivi"]}
+           "Interventions": ["Intervention", "Réalisation", "Suivi"], "Signalements": ["Signalement", "Suivi", "Terrain"]}
 
 
 @pytest.fixture(scope="module")
@@ -74,6 +74,15 @@ def test_listes_hors_recherche(qgis, constat):
     n = qgis["administrateur"]["non_cherchables"]
     constat(f"{len(n)} couches exclues de la recherche")
     assert "Usage" in n and "Points lumineux" not in n and "Supports" not in n
+
+
+@pytest.mark.parametrize("profil", PROFILS)
+def test_photo_de_terrain(qgis, constat, profil):
+    """T-APP-11 : la fiche d'un signalement retrouve le dossier des photos de terrain, depuis projets/ comme depuis projets/mon_postgres/"""
+    r = qgis[profil]["photo_terrain"]
+    constat(f"widget {r['widget']}, dossier {r['projets'].replace(RACINE.as_posix() + '/', '')}")
+    attendu = (RACINE / "data" / "terrain" / "photos").as_posix()
+    assert r["widget"] == "ExternalResource" and r["projets"] == attendu and r["mon_postgres"] == attendu
 
 
 @pytest.mark.parametrize("contrainte, attendu", [

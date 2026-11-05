@@ -79,6 +79,8 @@ GRANT SELECT ON controle.regle, controle.ecart TO ep_collectivite, ep_entreprise
 GRANT SELECT, INSERT ON exploitation.signalement TO ep_collectivite;
 GRANT USAGE ON SEQUENCE exploitation.signalement_id_seq TO ep_collectivite;
 GRANT SELECT ON exploitation.intervention TO ep_collectivite;
+REVOKE EXECUTE ON FUNCTION exploitation.importer_signalements_terrain(jsonb) FROM PUBLIC;
+GRANT EXECUTE ON FUNCTION exploitation.importer_signalements_terrain(jsonb) TO ep_administrateur, ep_collectivite;
 
 GRANT SELECT ON exploitation.signalement TO ep_entreprise;
 GRANT SELECT ON exploitation.intervention TO ep_entreprise;

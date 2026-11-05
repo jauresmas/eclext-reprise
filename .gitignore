@@ -7,6 +7,10 @@ data/sources/
 data/comptes_demo.txt
 projets/mon_postgres/
 
+# Pannes reçues du terrain : photos et comptes rendus d'import de ce poste
+data/terrain/
+livrables/terrain/
+
 # Exports et registres volumineux : se reconstruisent aussi avec scripts/run_all.py
 livrables/eclext/
 livrables/recette_geo/**/*.gpkg
